@@ -1,14 +1,15 @@
 import Card from "../shared/card";
 
 interface IProps {
-	cards: { id: string; text: string }[];
+  cards: { id: string; text: string }[];
+  showId?: boolean;
 }
 
-export default function CardsBlock({ cards }: IProps) {
+export default function CardsBlock({ cards, showId }: IProps) {
 	const getCards = () =>
 		cards.map((card) => (
 			<Card key={card.id}>
-				<p>{card.id}.</p>
+				{showId && <p>{card.id}.</p>}
 				<p>{card.text}</p>
 			</Card>
 		));

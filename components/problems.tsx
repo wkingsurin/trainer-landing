@@ -13,8 +13,11 @@ export default function Problem() {
 
 	return (
 		<Section px>
-			<TitleBlock />
-			<CardsBlock cards={cards} />
+			<TitleBlock
+				subtitle="проблема"
+				title="Почему у тебя до сих пор нет результата?"
+			/>
+			<CardsBlock cards={cards} showId />
 		</Section>
 	);
 }

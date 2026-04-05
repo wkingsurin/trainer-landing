@@ -16,7 +16,7 @@ export default function Advantage() {
 				subtitle="преимущества"
 				title="Почему со мной доходят до результата, а не сливаются"
 			/>
-			<CardsBlock className="grid grid-cols-2 grid-rows-2" cards={cards} showWorth />
+			<CardsBlock className="grid grid-cols-2 grid-rows-2" cards={cards} showWorth square />
 		</Section>
 	);
 }

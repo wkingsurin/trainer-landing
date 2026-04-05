@@ -10,17 +10,16 @@ export default function DescriptionBlock({ className, children }: IProps) {
 		fromColor: "from-foreground-400/50",
 		toColor: "to-foreground/50",
 		borderWeight: "border-[0.5px]",
-		shadowColor: "[box-shadow:inset_0_0_0_100vw_theme(colors.foreground-300/30)]",
+		shadowColor:
+			"[box-shadow:inset_0_0_0_100vw_theme(colors.foreground-300/30)]",
 	};
 
 	return (
-		<div className="absolute bottom-0 flex w-full p-3">
-			<Card
-				className={`${className} w-full min-h-[112px] flex flex-col items-start bg-foreground-300! backdrop-blur p-[20px]!`}
-				options={options}
-			>
-				{children}
-			</Card>
-		</div>
+		<Card
+			className={`${className} w-full min-h-[112px] flex flex-col items-start bg-foreground-300! backdrop-blur p-[20px]!`}
+			options={options}
+		>
+			{children}
+		</Card>
 	);
 }

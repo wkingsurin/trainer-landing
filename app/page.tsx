@@ -1,3 +1,4 @@
+import Advantage from "@/components/advantage";
 import Hero from "@/components/hero";
 import Problem from "@/components/problems";
 import Services from "@/components/services";
@@ -10,6 +11,7 @@ export default function Home() {
 			<Problem />
 			<Solution />
 			<Services />
+			<Advantage />
 		</main>
 	);
 }

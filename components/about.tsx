@@ -5,7 +5,6 @@ import TitleBlock from "./widgets/title-block";
 import CTAButton from "./shared/cta-button";
 import SectionContent from "./shared/section-content";
 import AdvancedCard from "./widgets/advanced-card";
-import DescriptionBlock from "./widgets/description-block";
 
 export default function About() {
 	const cards = [
@@ -18,6 +17,10 @@ export default function About() {
 		{ id: "3", worth: "5 лет", text: "практики" },
 		{ id: "4", worth: "90%", text: "успешных кейсов" },
 	];
+	const data = {
+		title: "Алина Самойлова",
+		description: "“Я не просто даю упражнения — я веду тебя до результата”",
+	};
 
 	return (
 		<Section px>
@@ -25,7 +28,7 @@ export default function About() {
 				subtitle="о тренере"
 				title="Твой результат — моя личная ответственность"
 			/>
-			<AdvancedCard imageSrc="/1.jpg" imageAlt="Алина Самойлова" />
+			<AdvancedCard imageSrc="/1.jpg" imageAlt="Алина Самойлова" data={data} />
 			<SectionContent gap="10">
 				<CardsBlock cards={cards} showWorth />
 				<CTAButton>Задать вопрос</CTAButton>

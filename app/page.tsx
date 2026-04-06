@@ -3,6 +3,7 @@ import Advantage from "@/components/advantage";
 import Hero from "@/components/hero";
 import Offers from "@/components/offers";
 import Problem from "@/components/problems";
+import Results from "@/components/results";
 import Services from "@/components/services";
 import Solution from "@/components/solution";
 
@@ -16,6 +17,7 @@ export default function Home() {
 			<Advantage />
 			<About />
 			<Offers />
+			<Results />
 		</main>
 	);
 }

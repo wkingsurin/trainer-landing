@@ -1,5 +1,6 @@
 import About from "@/components/about";
 import Advantage from "@/components/advantage";
+import Courses from "@/components/courses";
 import Hero from "@/components/hero";
 import Offers from "@/components/offers";
 import Problem from "@/components/problems";
@@ -18,6 +19,7 @@ export default function Home() {
 			<About />
 			<Offers />
 			<Results />
+			<Courses />
 		</main>
 	);
 }

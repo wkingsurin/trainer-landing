@@ -90,13 +90,14 @@ export default function AdvancedCard({
 						>
 							{data.title}
 						</span>
-						<div className="flex flex-col w-full gap-[6px]">
-							{typeof data.description === "object" &&
-								data.description.map((p) => <p key={p.text}>{p.text}</p>)}
-						</div>
-						{typeof data.description === "string" && (
-							<p>“Я не просто даю упражнения — я веду тебя до результата”</p>
+						{typeof data.description === "object" && (
+							<div className="flex flex-col w-full gap-[6px]">
+								{data.description.map((p) => (
+									<p key={p.text}>{p.text}</p>
+								))}
+							</div>
 						)}
+						{typeof data.description === "string" && <p>{data.description}</p>}
 					</DescriptionBlock>
 					{type === "offer" && <CTAButton>Оформить</CTAButton>}
 				</div>

@@ -16,7 +16,7 @@ export default function DescriptionBlock({ className, children }: IProps) {
 
 	return (
 		<Card
-			className={`${className} w-full min-h-[112px] flex flex-col items-start bg-foreground-300! backdrop-blur p-[20px]!`}
+			className={`${className} w-full min-h-[90px] flex flex-col items-start bg-foreground-300! backdrop-blur p-[20px]!`}
 			options={options}
 		>
 			{children}

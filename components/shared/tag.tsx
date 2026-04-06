@@ -16,7 +16,7 @@ export default function Tag({ className, children, isPremium }: IProps) {
 
 	return (
 		<Card
-			className={`${className} px-3! py-[6px]! min-h-[30px]! bg-foreground-300! backdrop-blur p-[20px]! font-bold ${isPremium && 'text-accent'}`}
+			className={`${className} px-3! py-[6px]! min-h-[30px]! bg-foreground-300! backdrop-blur p-[20px]! font-bold ${isPremium && 'text-accent'} min-w-[70px] justify-center`}
 			options={options}
 		>
 			{children}

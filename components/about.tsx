@@ -28,7 +28,7 @@ export default function About() {
 				subtitle="о тренере"
 				title="Твой результат — моя личная ответственность"
 			/>
-			<AdvancedCard imageSrc="/1.jpg" imageAlt="Алина Самойлова" data={data} />
+			<AdvancedCard imageSrc="/1.jpg" imageAlt="Алина Самойлова" data={data} type="about" />
 			<SectionContent gap="10">
 				<CardsBlock cards={cards} showWorth />
 				<CTAButton>Задать вопрос</CTAButton>

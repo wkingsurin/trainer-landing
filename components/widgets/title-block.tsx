@@ -8,7 +8,7 @@ interface IProps {
 
 export default function TitleBlock({ subtitle, title }: IProps) {
 	return (
-		<div className="flex flex-col gap-[10px]">
+		<div className="flex flex-col gap-[10px] px-3">
 			<Subtitle>{subtitle}</Subtitle>
 			<Title>{title}</Title>
 		</div>

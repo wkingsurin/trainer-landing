@@ -1,5 +1,4 @@
 import Section from "./shared/section";
-import SectionContent from "./shared/section-content";
 import AdvancedCard from "./widgets/advanced-card";
 import TitleBlock from "./widgets/title-block";
 
@@ -50,20 +49,20 @@ export default function Offers() {
 				imageSrc="/5.jpg"
 				imageAlt="Алина Самойлова"
 				data={card1}
-				isOffer
+				type="offer"
 			/>
 			<AdvancedCard
 				imageSrc="/3.jpg"
 				imageAlt="Алина Самойлова"
 				data={card2}
-				isOffer
-        isPremium
+				type="offer"
+				isPremium
 			/>
 			<AdvancedCard
 				imageSrc="/last.jpg"
 				imageAlt="Алина Самойлова"
 				data={card3}
-				isOffer
+				type="offer"
 			/>
 		</Section>
 	);

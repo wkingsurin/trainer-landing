@@ -4,17 +4,17 @@ import Section from "./shared/section";
 
 export default function Hero() {
 	return (
-		<Section className="relative flex flex-col h-[100vh]">
+		<Section className="relative flex flex-col h-[100vh] pt-0">
 			<div className="absolute z-999 w-full h-full">
 				<div className="relative w-full h-full">
-					<div className="absolute w-full h-full bg-background-250"></div>
-					<div className="absolute bottom-0 w-full h-100 bg-linear-to-b from-background/0 to-background"></div>
+					<div className="absolute z-1200 w-full h-full bg-background-250"></div>
+					<div className="absolute z-1200 bottom-0 w-full h-100 bg-linear-to-b from-background/0 to-background"></div>
 					<Image
 						src="/4.jpg"
 						alt="background"
-						width={375}
-						height={750}
-						className="w-auto h-auto w-full h-full object-cover object-top"
+						fill
+						priority
+						className="object-cover object-top"
 					/>
 				</div>
 			</div>

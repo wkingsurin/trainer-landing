@@ -56,9 +56,9 @@ export default function AdvancedCard({
 			options={options}
 		>
 			<Image
-				className="absolute w-full h-full rounded-[20px] object-cover"
-				width={351}
-				height={750}
+				className="absolute w-full h-full rounded-[20px] object-cover brightness-90"
+				fill
+				priority
 				src={imageSrc}
 				alt={imageAlt}
 			/>

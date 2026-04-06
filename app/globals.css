@@ -243,12 +243,14 @@
 	--radius-4xl: calc(var(--radius) * 2.6);
 
 	--shadow-sh: var(--sh);
+	--color-faq: var(--surface-200);
 }
 
 body {
 	color: var(--surface);
-	font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, Segoe UI,
+		Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+		sans-serif;
 }
 
 .dark {
@@ -286,13 +288,22 @@ body {
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+	* {
+		@apply border-border outline-ring/50;
 	}
-  body {
-    @apply bg-background text-foreground;
+	body {
+		@apply bg-background text-foreground;
 	}
-  html {
-    @apply font-sans;
+	html {
+		@apply font-sans;
+	}
+}
+
+@layer components {
+	.list-separator {
+		& > *:not(:last-child) {
+			border-bottom-width: 0.5px;
+			border-bottom-color: var(--color-faq);
+		}
 	}
 }

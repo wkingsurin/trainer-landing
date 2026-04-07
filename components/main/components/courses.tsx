@@ -1,6 +1,6 @@
-import Section from "./shared/section";
-import AdvancedCard from "./widgets/advanced-card";
-import TitleBlock from "./widgets/title-block";
+import Section from "../../shared/section";
+import AdvancedCard from "../../widgets/advanced-card";
+import TitleBlock from "../../widgets/title-block";
 
 export default function Courses() {
 	const cards = [

@@ -1,6 +1,6 @@
-import Section from "./shared/section";
-import CardsBlock from "./widgets/cards-block";
-import TitleBlock from "./widgets/title-block";
+import Section from "../../shared/section";
+import CardsBlock from "../../widgets/cards-block";
+import TitleBlock from "../../widgets/title-block";
 
 export default function Problem() {
 	const cards = [

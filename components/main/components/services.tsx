@@ -1,8 +1,8 @@
-import CTAButton from "./shared/cta-button";
-import Section from "./shared/section";
-import SectionContent from "./shared/section-content";
-import CardsBlock from "./widgets/cards-block";
-import TitleBlock from "./widgets/title-block";
+import CTAButton from "../../shared/cta-button";
+import Section from "../../shared/section";
+import SectionContent from "../../shared/section-content";
+import CardsBlock from "../../widgets/cards-block";
+import TitleBlock from "../../widgets/title-block";
 
 export default function Services() {
 	const cards = [

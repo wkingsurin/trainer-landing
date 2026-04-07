@@ -1,6 +1,6 @@
 import Image from "next/image";
-import CTAButton from "./shared/cta-button";
-import Section from "./shared/section";
+import CTAButton from "../../shared/cta-button";
+import Section from "../../shared/section";
 
 export default function Hero() {
 	return (

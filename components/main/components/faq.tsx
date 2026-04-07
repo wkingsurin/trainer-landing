@@ -1,7 +1,7 @@
 import { Plus } from "lucide-react";
-import Section from "./shared/section";
-import SectionContent from "./shared/section-content";
-import TitleBlock from "./widgets/title-block";
+import Section from "../../shared/section";
+import SectionContent from "../../shared/section-content";
+import TitleBlock from "../../widgets/title-block";
 
 export default function FAQ() {
 	const questions = [

@@ -1,10 +1,10 @@
 import { BadgeCheck } from "lucide-react";
-import Section from "./shared/section";
-import CardsBlock from "./widgets/cards-block";
-import TitleBlock from "./widgets/title-block";
-import CTAButton from "./shared/cta-button";
-import SectionContent from "./shared/section-content";
-import AdvancedCard from "./widgets/advanced-card";
+import Section from "../../shared/section";
+import CardsBlock from "../../widgets/cards-block";
+import TitleBlock from "../../widgets/title-block";
+import CTAButton from "../../shared/cta-button";
+import SectionContent from "../../shared/section-content";
+import AdvancedCard from "../../widgets/advanced-card";
 
 export default function About() {
 	const cards = [

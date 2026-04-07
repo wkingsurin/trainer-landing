@@ -16,7 +16,7 @@ interface IProps {
 
 export default function Main({ children }: IProps) {
 	return (
-		<main>
+		<main className="[&>*]:py-[30px] [&>*:last-child]:pb-0">
 			<Hero />
 			<Problem />
 			<Solution />

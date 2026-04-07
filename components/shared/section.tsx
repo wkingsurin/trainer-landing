@@ -11,7 +11,7 @@ export default function Section({ id, className, px, children }: IProps) {
 			id={id}
 			className={`${className} ${
 				px && "px-3"
-			} flex flex-col gap-[30px] py-[30px]`}
+			} flex flex-col gap-[30px]`}
 		>
 			{children}
 		</section>

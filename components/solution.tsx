@@ -13,7 +13,7 @@ export default function Solution() {
 	];
 
 	return (
-		<Section px>
+		<Section id="solution" px>
 			<TitleBlock
 				subtitle="решение"
 				title="Вот как мы доведём тебя до результата"

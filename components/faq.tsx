@@ -38,7 +38,7 @@ export default function FAQ() {
 	];
 
 	return (
-		<Section px className="bg-foreground">
+		<Section id="faq" px className="bg-foreground">
 			<TitleBlock
 				subtitle="вопросы"
 				title="Ответы на вопросы, которые тебя останавливают"

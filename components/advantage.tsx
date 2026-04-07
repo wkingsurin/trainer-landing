@@ -11,7 +11,7 @@ export default function Advantage() {
 	];
 
 	return (
-		<Section className="flex flex-wrap" px>
+		<Section id="advantage" className="flex flex-wrap" px>
 			<TitleBlock
 				subtitle="преимущества"
 				title="Почему со мной доходят до результата, а не сливаются"

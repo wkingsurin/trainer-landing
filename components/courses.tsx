@@ -30,7 +30,7 @@ export default function Courses() {
 	];
 
 	return (
-		<Section px>
+		<Section id="courses" px>
 			<TitleBlock subtitle="курсы" title="Готовые программы" />
 			{cards.map((card) => {
 				const imageId = card.price.includes("9") ? "4" : "1";

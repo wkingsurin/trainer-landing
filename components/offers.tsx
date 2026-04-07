@@ -40,7 +40,7 @@ export default function Offers() {
 	};
 
 	return (
-		<Section px>
+		<Section id="offers" px>
 			<TitleBlock
 				subtitle="предложение"
 				title="Начни с удобного формата — результат будет в любом"

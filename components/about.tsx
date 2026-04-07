@@ -23,7 +23,7 @@ export default function About() {
 	};
 
 	return (
-		<Section px>
+		<Section id="about" px>
 			<TitleBlock
 				subtitle="о тренере"
 				title="Твой результат — моя личная ответственность"

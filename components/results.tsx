@@ -23,7 +23,7 @@ export default function Results() {
 	];
 
 	return (
-		<Section px>
+		<Section id="results" px>
 			<TitleBlock
 				subtitle="результаты"
 				title="Результаты моих клиентов говорят сами за себя"

@@ -12,7 +12,7 @@ export default function Problem() {
 	];
 
 	return (
-		<Section px>
+		<Section id="problems" px>
 			<TitleBlock
 				subtitle="проблема"
 				title="Почему у тебя до сих пор нет результата?"

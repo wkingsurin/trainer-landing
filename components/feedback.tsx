@@ -4,7 +4,7 @@ import TitleBlock from "./widgets/title-block";
 
 export default function Feedback() {
 	return (
-		<Section>
+		<Section id="feedback">
 			<TitleBlock
 				subtitle="обратная связь"
 				title="Сделай первый шаг к своему новому телу"

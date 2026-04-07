@@ -4,7 +4,7 @@ import Section from "./shared/section";
 
 export default function Hero() {
 	return (
-		<Section className="relative flex flex-col h-[100vh] pt-0">
+		<Section id="hero" className="relative flex flex-col h-[100vh] pt-0">
 			<div className="absolute z-999 w-full h-full">
 				<div className="relative w-full h-full">
 					<div className="absolute z-1200 w-full h-full bg-background-250"></div>

@@ -13,7 +13,7 @@ export default function Services() {
 	];
 
 	return (
-		<Section px>
+		<Section id="services" px>
 			<TitleBlock subtitle="услуги" title="Услуги тренера" />
       <SectionContent gap='10'>
 			<CardsBlock cards={cards} />

@@ -39,16 +39,6 @@ export default function AdvancedCard({
 			? "[box-shadow:inset_0_0_0_100vw_theme(colors.foreground)]"
 			: "[box-shadow:inset_0_0_0_100vw_theme(colors.foreground)]",
 	};
-	const socials = [
-		{
-			imageName: "instagram",
-			icon: <InstamgramIcon className="" size="size-5" />,
-		},
-		{
-			imageName: "telegram",
-			icon: <TelegramIcon className="" size="size-5" />,
-		},
-	];
 
 	return (
 		<Card
@@ -67,7 +57,7 @@ export default function AdvancedCard({
 					type === "review" && "justify-end"
 				}`}
 			>
-				{type === "about" && <SocialBlock socials={socials} />}
+				{type === "about" && <SocialBlock />}
 				{type === "offer" && (
 					<Tag className="leading-[17px]" isPremium={isPremium}>
 						{data.tag}

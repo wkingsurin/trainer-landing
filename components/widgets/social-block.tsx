@@ -1,10 +1,19 @@
 import Icon from "../shared/icon";
+import InstamgramIcon from "../shared/instagram-icon";
+import TelegramIcon from "../shared/telegram-icon";
 
-interface IProps {
-	socials: { imageName: string; icon: React.ReactNode }[];
-}
+export default function SocialBlock() {
+	const socials = [
+		{
+			imageName: "instagram",
+			icon: <InstamgramIcon className="" size="size-5" />,
+		},
+		{
+			imageName: "telegram",
+			icon: <TelegramIcon className="" size="size-5" />,
+		},
+	];
 
-export default function SocialBlock({ socials }: IProps) {
 	return (
 		<div className="z-1200 top-3 right-3 flex gap-2">
 			{socials.map((social) => (

@@ -3,18 +3,23 @@ import CTAButton from "../../shared/cta-button";
 import Section from "../../shared/section";
 import BackgroundImage from "../widgets/background-image";
 import SectionTitle from "@/components/shared/section-title";
+import Advantage from "../widgets/advantage";
 
 export default async function Hero() {
 	const isMobile = await isMobileDevice();
-	const titleBlockStyle = isMobile ? "bottom-[120px]" : "top-[250px] left-[120px] p-0! gap-6 items-center";
+	const titleBlockStyle = isMobile
+		? "bottom-[120px]"
+		: "top-[250px] left-[120px] p-0! gap-6 items-center";
 	const sectionDesktopStyle = "container mx-auto max-w-[1280px] p-0!";
 	const textBlockSize = isMobile
 		? "max-w-[1280px]"
 		: "max-w-[480px] left-[120px]";
 	const titleStyle = isMobile ? "text-[32px]" : "text-[48px]";
-	const subtitleStyle = isMobile ? "text-base" : "text-[20px]"
-	const contentGap = isMobile ? "gap-[6px]" : "gap-3"
-	const buttonStyle = isMobile ? "min-h-[50px]" : "min-w-[240px] rounded-[16px] text-[18px] font-bold"
+	const subtitleStyle = isMobile ? "text-base" : "text-[20px]";
+	const contentGap = isMobile ? "gap-[6px]" : "gap-3";
+	const buttonStyle = isMobile
+		? "min-h-[50px]"
+		: "min-w-[240px] rounded-[16px] text-[18px] font-bold";
 
 	return (
 		<Section
@@ -38,6 +43,7 @@ export default async function Hero() {
 					Начать
 				</CTAButton>
 			</div>
+			<Advantage />
 		</Section>
 	);
 }

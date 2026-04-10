@@ -4,6 +4,7 @@ import Section from "../../shared/section";
 import BackgroundImage from "../widgets/background-image";
 import SectionTitle from "@/components/shared/section-title";
 import Advantage from "../widgets/advantage";
+import SocialBlock from "@/components/widgets/social-block";
 
 export default async function Hero() {
 	const isMobile = await isMobileDevice();
@@ -19,7 +20,7 @@ export default async function Hero() {
 	const contentGap = isMobile ? "gap-[6px]" : "gap-3";
 	const buttonStyle = isMobile
 		? "min-h-[50px]"
-		: "min-w-[240px] rounded-[16px] text-[18px] font-bold";
+		: "min-w-[320px] rounded-[16px] text-[18px] font-bold";
 
 	return (
 		<Section
@@ -42,8 +43,9 @@ export default async function Hero() {
 				<CTAButton isMobile={isMobile} className={buttonStyle}>
 					Начать
 				</CTAButton>
+				<SocialBlock className="mt-[26px] flex-col items-center" isMobile={isMobile} />
 			</div>
-			<Advantage />
+			{isMobile ? null : <Advantage />}
 		</Section>
 	);
 }

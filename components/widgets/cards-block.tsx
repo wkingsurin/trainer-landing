@@ -38,7 +38,7 @@ export default function CardsBlock({
 					className={`card ${
 						showWorth &&
 						`flex flex-col items-center justify-center gap-[15px] min-h-[110px] py-[15px]! px-[20px]! text-center`
-					} ${square && "aspect-square"}`}
+					} ${square && "aspect-square" || 'flex-1'}`}
 				>
 					{showId && <p>{card.id}.</p>}
 					{showWorth && worth}

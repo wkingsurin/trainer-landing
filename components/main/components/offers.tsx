@@ -2,7 +2,11 @@ import Section from "../../shared/section";
 import AdvancedCard from "../../widgets/advanced-card";
 import TitleBlock from "../../widgets/title-block";
 
-export default function Offers() {
+interface IProps {
+	isMobile: boolean;
+}
+
+export default function Offers({ isMobile }: IProps) {
 	const card1 = {
 		title: "Что получаешь:",
 		tag: `"Стандарт"`,
@@ -40,7 +44,7 @@ export default function Offers() {
 	};
 
 	return (
-		<Section id="offers" px>
+		<Section id="offers" px isMobile={isMobile}>
 			<TitleBlock
 				subtitle="предложение"
 				title="Начни с удобного формата — результат будет в любом"

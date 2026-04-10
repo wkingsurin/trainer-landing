@@ -6,7 +6,11 @@ import CTAButton from "../../shared/cta-button";
 import SectionContent from "../../shared/section-content";
 import AdvancedCard from "../../widgets/advanced-card";
 
-export default function About() {
+interface IProps {
+	isMobile: boolean;
+}
+
+export default function About({ isMobile }: IProps) {
 	const cards = [
 		{
 			id: "1",
@@ -23,14 +27,19 @@ export default function About() {
 	};
 
 	return (
-		<Section id="about" px>
+		<Section id="about" px isMobile={isMobile}>
 			<TitleBlock
 				subtitle="о тренере"
 				title="Твой результат — моя личная ответственность"
 			/>
-			<AdvancedCard imageSrc="/1.jpg" imageAlt="Алина Самойлова" data={data} type="about" />
+			<AdvancedCard
+				imageSrc="/1.jpg"
+				imageAlt="Алина Самойлова"
+				data={data}
+				type="about"
+			/>
 			<SectionContent gap="10">
-				<CardsBlock cards={cards} showWorth />
+				<CardsBlock cards={cards} showWorth type="about" />
 				<CTAButton>Задать вопрос</CTAButton>
 			</SectionContent>
 		</Section>

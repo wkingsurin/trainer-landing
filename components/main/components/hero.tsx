@@ -6,8 +6,11 @@ import SectionTitle from "@/components/shared/section-title";
 import Advantage from "../widgets/advantage";
 import SocialBlock from "@/components/widgets/social-block";
 
-export default async function Hero() {
-	const isMobile = await isMobileDevice();
+interface IProps {
+	isMobile: boolean;
+}
+
+export default async function Hero({ isMobile }: IProps) {
 	const titleBlockStyle = isMobile
 		? "bottom-[120px]"
 		: "top-[250px] left-[120px] p-0! gap-6 items-center";
@@ -25,6 +28,7 @@ export default async function Hero() {
 	return (
 		<Section
 			id="hero"
+			isMobile={isMobile}
 			className={`relative flex flex-col h-[100vh] pt-0 w-full box-content ${sectionDesktopStyle}`}
 		>
 			<BackgroundImage isMobile={isMobile} />
@@ -43,7 +47,10 @@ export default async function Hero() {
 				<CTAButton isMobile={isMobile} className={buttonStyle}>
 					Начать
 				</CTAButton>
-				<SocialBlock className="mt-[26px] flex-col items-center" isMobile={isMobile} />
+				<SocialBlock
+					className="mt-[26px] flex-col items-center"
+					isMobile={isMobile}
+				/>
 			</div>
 			{isMobile ? null : <Advantage />}
 		</Section>

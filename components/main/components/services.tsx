@@ -4,7 +4,11 @@ import SectionContent from "../../shared/section-content";
 import CardsBlock from "../../widgets/cards-block";
 import TitleBlock from "../../widgets/title-block";
 
-export default function Services() {
+interface IProps {
+	isMobile: boolean;
+}
+
+export default function Services({ isMobile }: IProps) {
 	const cards = [
 		{ id: "1", text: "Анализ твоего тела и целей" },
 		{ id: "2", text: "Составление персональной программы" },
@@ -13,12 +17,12 @@ export default function Services() {
 	];
 
 	return (
-		<Section id="services" px>
+		<Section id="services" px isMobile={isMobile}>
 			<TitleBlock subtitle="услуги" title="Услуги тренера" />
-      <SectionContent gap='10'>
-			<CardsBlock cards={cards} />
-      <CTAButton>Задать вопрос</CTAButton>
-      </SectionContent>
+			<SectionContent gap="10">
+				<CardsBlock cards={cards} type="services" />
+				<CTAButton>Задать вопрос</CTAButton>
+			</SectionContent>
 		</Section>
 	);
 }

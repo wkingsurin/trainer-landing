@@ -2,7 +2,11 @@ import Section from "../../shared/section";
 import AdvancedCard from "../../widgets/advanced-card";
 import TitleBlock from "../../widgets/title-block";
 
-export default function Courses() {
+interface IProps {
+	isMobile: boolean;
+}
+
+export default function Courses({ isMobile }: IProps) {
 	const cards = [
 		{
 			title: "Что получаешь:",
@@ -30,7 +34,7 @@ export default function Courses() {
 	];
 
 	return (
-		<Section id="courses" px>
+		<Section id="courses" px isMobile={isMobile}>
 			<TitleBlock subtitle="курсы" title="Готовые программы" />
 			{cards.map((card) => {
 				const imageId = card.price.includes("9") ? "4" : "1";

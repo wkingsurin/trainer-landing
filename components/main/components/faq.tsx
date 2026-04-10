@@ -3,7 +3,11 @@ import Section from "../../shared/section";
 import SectionContent from "../../shared/section-content";
 import TitleBlock from "../../widgets/title-block";
 
-export default function FAQ() {
+interface IProps {
+	isMobile: boolean;
+}
+
+export default function FAQ({ isMobile }: IProps) {
 	const questions = [
 		{
 			id: "1",
@@ -38,7 +42,7 @@ export default function FAQ() {
 	];
 
 	return (
-		<Section id="faq" px className="bg-foreground">
+		<Section id="faq" px className="bg-foreground" isMobile={isMobile}>
 			<TitleBlock
 				subtitle="вопросы"
 				title="Ответы на вопросы, которые тебя останавливают"

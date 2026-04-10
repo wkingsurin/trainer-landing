@@ -1,23 +1,11 @@
-import Image from "next/image";
 import CTAButton from "../../shared/cta-button";
 import Section from "../../shared/section";
+import BackgroundImage from "../widgets/background-image";
 
 export default function Hero() {
 	return (
 		<Section id="hero" className="relative flex flex-col h-[100vh] pt-0">
-			<div className="absolute z-999 w-full h-full">
-				<div className="relative w-full h-full">
-					<div className="absolute z-1200 w-full h-full bg-background-250"></div>
-					<div className="absolute z-1200 bottom-0 w-full h-100 bg-linear-to-b from-background/0 to-background"></div>
-					<Image
-						src="/4.jpg"
-						alt="background"
-						fill
-						priority
-						className="object-cover object-top"
-					/>
-				</div>
-			</div>
+			<BackgroundImage />
 			<div className="absolute bottom-[120px] px-3 z-1100 flex flex-col gap-[15px]">
 				<div className="flex flex-col gap-[6px] text-center">
 					<h1 className="font-bold text-[32px]">

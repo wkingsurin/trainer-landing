@@ -42,10 +42,19 @@ export default function FAQ({ isMobile }: IProps) {
 	];
 
 	return (
-		<Section id="faq" px className="bg-foreground" isMobile={isMobile} container centered>
+		<Section
+			id="faq"
+			px
+			className="bg-foreground"
+			isMobile={isMobile}
+			container
+			centered
+		>
 			<TitleBlock
 				subtitle="вопросы"
 				title="Ответы на вопросы, которые тебя останавливают"
+				isMobile={isMobile}
+				className="max-w-[480px]"
 			/>
 			<SectionContent className="max-w-[720px] w-full">
 				<ul className="flex flex-col list-separator">

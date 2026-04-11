@@ -23,6 +23,7 @@ export default function Advantage({ isMobile }: IProps) {
 			<TitleBlock
 				subtitle="преимущества"
 				title="Почему со мной доходят до результата, а не сливаются"
+				isMobile={isMobile}
 			/>
 			<CardsBlock
 				className="grid grid-cols-2 grid-rows-2"

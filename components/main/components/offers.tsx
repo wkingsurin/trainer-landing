@@ -1,6 +1,7 @@
+import OfferCard from "@/components/main/widgets/offer-card";
 import Section from "../../shared/section";
-import AdvancedCard from "../../widgets/advanced-card";
 import TitleBlock from "../../widgets/title-block";
+import SectionContent from "@/components/shared/section-content";
 
 interface IProps {
 	isMobile: boolean;
@@ -43,31 +44,37 @@ export default function Offers({ isMobile }: IProps) {
 		],
 	};
 
+	const style = isMobile ? "gap-5" : "flex-row justify-center gap-5";
+
 	return (
-		<Section id="offers" px isMobile={isMobile} container>
+		<Section id="offers" px isMobile={isMobile} container centered>
 			<TitleBlock
 				subtitle="предложение"
 				title="Начни с удобного формата — результат будет в любом"
+				isMobile={isMobile}
+				className="max-w-[450px]"
 			/>
-			<AdvancedCard
-				imageSrc="/5.jpg"
-				imageAlt="Алина Самойлова"
-				data={card1}
-				type="offer"
-			/>
-			<AdvancedCard
-				imageSrc="/3.jpg"
-				imageAlt="Алина Самойлова"
-				data={card2}
-				type="offer"
-				isPremium
-			/>
-			<AdvancedCard
-				imageSrc="/last.jpg"
-				imageAlt="Алина Самойлова"
-				data={card3}
-				type="offer"
-			/>
+			<SectionContent className={`w-full ${style}`}>
+				<OfferCard
+					imageSrc="/5.jpg"
+					imageAlt="Алина Самойлова"
+					data={card1}
+					isMobile={isMobile}
+				/>
+				<OfferCard
+					imageSrc="/3.jpg"
+					imageAlt="Алина Самойлова"
+					data={card2}
+					premium
+					isMobile={isMobile}
+				/>
+				<OfferCard
+					imageSrc="/last.jpg"
+					imageAlt="Алина Самойлова"
+					data={card3}
+					isMobile={isMobile}
+				/>
+			</SectionContent>
 		</Section>
 	);
 }

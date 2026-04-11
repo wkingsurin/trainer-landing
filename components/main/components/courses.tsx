@@ -1,6 +1,7 @@
+import OfferCard from "@/components/main/widgets/offer-card";
 import Section from "../../shared/section";
-import AdvancedCard from "../../widgets/advanced-card";
 import TitleBlock from "../../widgets/title-block";
+import SectionContent from "@/components/shared/section-content";
 
 interface IProps {
 	isMobile: boolean;
@@ -33,23 +34,31 @@ export default function Courses({ isMobile }: IProps) {
 		},
 	];
 
-	return (
-		<Section id="courses" px isMobile={isMobile} container>
-			<TitleBlock subtitle="курсы" title="Готовые программы" />
-			{cards.map((card) => {
-				const imageId = card.price.includes("9") ? "4" : "1";
+	const style = isMobile ? "gap-5" : "flex-row justify-center gap-5";
 
-				return (
-					<AdvancedCard
-						key={card.tag}
-						imageSrc={`/${imageId}.jpg`}
-						imageAlt="Алина Самойлова"
-						data={card}
-						type="offer"
-						isPremium={imageId === "4"}
-					/>
-				);
-			})}
+	return (
+		<Section id="courses" px isMobile={isMobile} container centered>
+			<TitleBlock
+				subtitle="курсы"
+				title="Готовые программы"
+				isMobile={isMobile}
+			/>
+			<SectionContent className={`w-full ${style}`}>
+				{cards.map((card) => {
+					const imageId = card.price.includes("9") ? "4" : "1";
+
+					return (
+						<OfferCard
+							key={card.tag}
+							imageSrc={`/${imageId}.jpg`}
+							imageAlt="Алина Самойлова"
+							isMobile={isMobile}
+							data={card}
+							premium={imageId === "4"}
+						/>
+					);
+				})}
+			</SectionContent>
 		</Section>
 	);
 }

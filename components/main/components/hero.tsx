@@ -1,4 +1,3 @@
-import isMobileDevice from "@/components/hooks/isDeviceType";
 import CTAButton from "../../shared/cta-button";
 import Section from "../../shared/section";
 import BackgroundImage from "../widgets/background-image";
@@ -51,6 +50,7 @@ export default async function Hero({ isMobile }: IProps) {
 				<SocialBlock
 					className="mt-[26px] flex-col items-center"
 					isMobile={isMobile}
+					title
 				/>
 			</div>
 			{isMobile ? null : <Advantage />}

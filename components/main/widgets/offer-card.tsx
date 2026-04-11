@@ -1,17 +1,16 @@
 import Image from "next/image";
-import Card from "../shared/card";
-import SocialBlock from "./social-block";
-import DescriptionBlock from "./description-block";
-import Tag from "../shared/tag";
-import CTAButton from "../shared/cta-button";
+import Card from "../../shared/card";
+import DescriptionBlock from "../../widgets/description-block";
+import Tag from "../../shared/tag";
+import CTAButton from "../../shared/cta-button";
 
 interface IProps {
 	imageSrc: string;
 	imageAlt: string;
-	type: "offer" | "review" | "about";
 	className?: string;
 	children?: React.ReactNode;
-	isPremium?: boolean;
+	premium?: boolean;
+	isMobile: boolean;
 	data: {
 		title: string;
 		tag?: string;
@@ -20,27 +19,29 @@ interface IProps {
 	};
 }
 
-export default function AdvancedCard({
+export default function OfferCard({
 	className,
 	imageSrc,
 	imageAlt,
-	type,
-	isPremium,
+	premium,
+  isMobile,
 	children,
 	data,
 }: IProps) {
 	const options = {
-		fromColor: isPremium ? "from-accent-400" : "from-surface-400/15",
-		toColor: isPremium ? "to-accent" : "to-surface/15",
-		borderWeight: isPremium ? "border-[2px]" : "border-[0.5px]",
-		shadowColor: isPremium
+		fromColor: premium ? "from-accent-400" : "from-surface-400/15",
+		toColor: premium ? "to-accent" : "to-surface/15",
+		borderWeight: premium ? "border-[2px]" : "border-[0.5px]",
+		shadowColor: premium
 			? "[box-shadow:inset_0_0_0_100vw_theme(colors.foreground)]"
 			: "[box-shadow:inset_0_0_0_100vw_theme(colors.foreground)]",
 	};
 
+  const style = isMobile ? "flex-1" : "w-1/4"
+
 	return (
 		<Card
-			className={`advanced-card p-0! relative min-h-[500px] ${className}`}
+			className={`advanced-card p-0! relative min-h-[500px] ${style} ${className}`}
 			options={options}
 		>
 			<Image
@@ -51,29 +52,24 @@ export default function AdvancedCard({
 				alt={imageAlt}
 			/>
 			<div
-				className={`absolute z-1200 w-full h-full flex flex-col justify-between items-end p-3 text-[14px] ${
-					type === "review" && "justify-end"
-				}`}
+				className={`absolute z-1200 w-full h-full flex flex-col justify-between items-end p-3 text-[14px]`}
 			>
-				{type === "about" && <SocialBlock />}
-				{type === "offer" && (
-					<Tag className="leading-[17px]" isPremium={isPremium}>
-						{data.tag}
-					</Tag>
-				)}
+				<Tag className="leading-[17px]" premium={premium}>
+					{data.tag}
+				</Tag>
+
 				<div className="flex flex-col items-end gap-3 w-full">
-					{type === "offer" && (
-						<Tag
-							className="flex gap-[5px]! mb-[-6px] leading-[17px]"
-							isPremium={isPremium}
-						>
-							{data.price}
-						</Tag>
-					)}
+					<Tag
+						className="flex gap-[5px]! mb-[-6px] leading-[17px]"
+						premium={premium}
+					>
+						{data.price}
+					</Tag>
+
 					<DescriptionBlock className="leading-[19px]">
 						<span
 							className={`text-base font-bold leading-[19px] ${
-								isPremium && "text-accent"
+								premium && "text-accent"
 							}`}
 						>
 							{data.title}
@@ -87,7 +83,10 @@ export default function AdvancedCard({
 						)}
 						{typeof data.description === "string" && <p>{data.description}</p>}
 					</DescriptionBlock>
-					{type === "offer" && <CTAButton type="normal" className="w-full">Оформить</CTAButton>}
+
+					<CTAButton type="normal" className="w-full">
+						Оформить
+					</CTAButton>
 				</div>
 			</div>
 			{children}

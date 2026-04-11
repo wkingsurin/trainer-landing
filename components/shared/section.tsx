@@ -20,10 +20,10 @@ export default function Section({
 	const style = isMobile ? "gap-[30px]" : "gap-[50px]";
 
 	return (
-		<section id={id} className={`${px && "px-3"} flex flex-col ${style} ${className}`}>
+		<section id={id} className={`flex flex-col ${style} ${className}`}>
 			{container ? (
 				<div
-					className={`container mx-auto max-w-[1280px] flex flex-col ${style} ${
+					className={`relative container mx-auto max-w-[1280px] h-full flex flex-col box-border ${px && "px-3"} ${style} ${
 						centered && "items-center"
 					}`}
 				>

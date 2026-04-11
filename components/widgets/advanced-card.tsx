@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Card from "../shared/card";
 import SocialBlock from "./social-block";
-import InstamgramIcon from "../shared/instagram-icon";
-import TelegramIcon from "../shared/telegram-icon";
 import DescriptionBlock from "./description-block";
 import Tag from "../shared/tag";
 import CTAButton from "../shared/cta-button";
@@ -89,7 +87,7 @@ export default function AdvancedCard({
 						)}
 						{typeof data.description === "string" && <p>{data.description}</p>}
 					</DescriptionBlock>
-					{type === "offer" && <CTAButton>Оформить</CTAButton>}
+					{type === "offer" && <CTAButton type="normal" className="w-full">Оформить</CTAButton>}
 				</div>
 			</div>
 			{children}

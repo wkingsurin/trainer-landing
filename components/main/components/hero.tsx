@@ -44,7 +44,7 @@ export default async function Hero({ isMobile }: IProps) {
 						этапе
 					</span>
 				</div>
-				<CTAButton isMobile={isMobile} className={buttonStyle}>
+				<CTAButton isMobile={isMobile} type="huge" className={buttonStyle}>
 					Начать
 				</CTAButton>
 				<SocialBlock

@@ -15,11 +15,11 @@ export default function About({ isMobile }: IProps) {
 		{
 			id: "1",
 			worth: <BadgeCheck className="size-6" />,
-			text: "cертифицированный тренер",
+			description: "cертифицированный тренер",
 		},
-		{ id: "2", worth: "100+", text: "клиентов получили результат" },
-		{ id: "3", worth: "5 лет", text: "практики" },
-		{ id: "4", worth: "90%", text: "успешных кейсов" },
+		{ id: "2", worth: "100+", description: "клиентов получили результат" },
+		{ id: "3", worth: "5 лет", description: "практики" },
+		{ id: "4", worth: "90%", description: "успешных кейсов" },
 	];
 	const data = {
 		title: "Алина Самойлова",
@@ -40,7 +40,7 @@ export default function About({ isMobile }: IProps) {
 			/>
 			<SectionContent gap="10">
 				<CardsBlock cards={cards} showWorth type="about" />
-				<CTAButton>Задать вопрос</CTAButton>
+				<CTAButton type="normal">Задать вопрос</CTAButton>
 			</SectionContent>
 		</Section>
 	);

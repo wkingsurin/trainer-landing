@@ -10,10 +10,10 @@ interface IProps {
 
 export default function Services({ isMobile }: IProps) {
 	const cards = [
-		{ id: "1", text: "Анализ твоего тела и целей" },
-		{ id: "2", text: "Составление персональной программы" },
-		{ id: "3", text: "Контроль и корректировка каждую неделю" },
-		{ id: "4", text: "Поддержка и мотивация 24/7" },
+		{ id: "1", description: "Анализ твоего тела и целей" },
+		{ id: "2", description: "Составление персональной программы" },
+		{ id: "3", description: "Контроль и корректировка каждую неделю" },
+		{ id: "4", description: "Поддержка и мотивация 24/7" },
 	];
 
 	return (
@@ -21,7 +21,7 @@ export default function Services({ isMobile }: IProps) {
 			<TitleBlock subtitle="услуги" title="Услуги тренера" />
 			<SectionContent gap="10">
 				<CardsBlock cards={cards} type="services" />
-				<CTAButton>Задать вопрос</CTAButton>
+				<CTAButton type="normal">Задать вопрос</CTAButton>
 			</SectionContent>
 		</Section>
 	);

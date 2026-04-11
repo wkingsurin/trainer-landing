@@ -10,10 +10,42 @@ interface IProps {
 
 export default function Solution({ isMobile }: IProps) {
 	const cards = [
-		{ id: "1", text: "Анализ твоего тела и целей" },
-		{ id: "2", text: "Составление персональной программы" },
-		{ id: "3", text: "Контроль и корректировка каждую неделю" },
-		{ id: "4", text: "Поддержка и мотивация 24/7" },
+		{
+			id: "1",
+			title: "Анализ твоего тела и целей",
+			description: [
+				{ text: "Проводим персональную тренировку" },
+				{ text: "Проводим быстрый курс" },
+				{ text: "Оцениваем твои возможности" },
+			],
+		},
+		{
+			id: "2",
+			title: "Составление персональной программы",
+			description: [
+				{ text: "Проводим персональную тренировку" },
+				{ text: "Проводим быстрый курс" },
+				{ text: "Оцениваем твои возможности" },
+			],
+		},
+		{
+			id: "3",
+			title: "Контроль и корректировка каждую неделю",
+			description: [
+				{ text: "Проводим персональную тренировку" },
+				{ text: "Проводим быстрый курс" },
+				{ text: "Оцениваем твои возможности" },
+			],
+		},
+		{
+			id: "4",
+			title: "Контроль и корректировка каждую неделю",
+			description: [
+				{ text: "Проводим персональную тренировку" },
+				{ text: "Проводим быстрый курс" },
+				{ text: "Оцениваем твои возможности" },
+			],
+		},
 	];
 
 	return (
@@ -22,9 +54,11 @@ export default function Solution({ isMobile }: IProps) {
 				subtitle="решение"
 				title="Вот как мы доведём тебя до результата"
 			/>
-			<SectionContent gap="10">
-				<CardsBlock cards={cards} showId type="solution" />
-				<CTAButton>Начать</CTAButton>
+			<SectionContent className="items-center w-full gap-[50px]">
+				<CardsBlock cards={cards} showId type="solution" isMobile={isMobile} />
+				<CTAButton isMobile={isMobile} type="medium">
+					Начать
+				</CTAButton>
 			</SectionContent>
 		</Section>
 	);

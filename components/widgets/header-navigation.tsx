@@ -12,7 +12,7 @@ export default function HeaderNavigation({ isMobile }: IProps) {
 			{!isMobile && (
 				<>
 					<Navigation />
-					<CTAButton>Записаться</CTAButton>
+					<CTAButton type="normal">Записаться</CTAButton>
 				</>
 			)}
 

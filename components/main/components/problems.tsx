@@ -8,10 +8,10 @@ interface IProps {
 
 export default function Problem({ isMobile }: IProps) {
 	const cards = [
-		{ id: "1", text: "Тренируешься, но вес не уходит" },
-		{ id: "2", text: "Не понимаешь, что и как делать в зале" },
-		{ id: "3", text: "Срываешься с диеты через 3 дня" },
-		{ id: "4", text: "Нет мотивации и контроля" },
+		{ id: "1", description: "Тренируешься, но вес не уходит" },
+		{ id: "2", description: "Не понимаешь, что и как делать в зале" },
+		{ id: "3", description: "Срываешься с диеты через 3 дня" },
+		{ id: "4", description: "Нет мотивации и контроля" },
 	];
 
 	const sectionStyle = isMobile

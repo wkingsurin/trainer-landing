@@ -1,17 +1,18 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
+import { useState } from "react";
 
 import "swiper/css";
 import "swiper/css/scrollbar";
 import "swiper/css/navigation";
 
-import AdvancedCard from "./advanced-card";
-import { Pagination, Navigation } from "swiper/modules";
+import SlideCard from "../main/widgets/slide-card";
 import Tag from "../shared/tag";
-import { useState } from "react";
 
 interface IProps {
+	isMobile: boolean;
 	slides: {
 		title: string;
 		tag?: string;
@@ -20,24 +21,34 @@ interface IProps {
 	}[];
 }
 
-export default function Carousel({ slides }: IProps) {
-	const [active, setActive] = useState<number>(1);
+export default function Carousel({ isMobile, slides }: IProps) {
+	const [active, setActive] = useState<number>(() => (isMobile ? 1 : 4));
 
 	return (
 		<div className={`container scrollbar-hide rounded-[20px] overflow-hidden`}>
 			<Swiper
 				modules={[Pagination, Navigation]}
 				spaceBetween={24}
+				slidesOffsetAfter={0}
 				slidesPerView="auto"
 				speed={800}
-				onSlideChange={(swiper) => setActive(swiper.activeIndex + 1)}
+				onSlideChange={(swiper) => {
+					setActive(() => {
+						if (!isMobile) return swiper.activeIndex + 1 + 3;
+						return swiper.activeIndex + 1;
+					});
+				}}
+				className="[&>*:last-child]:mr-0!"
 			>
 				{slides.map((slide, index) => (
-					<SwiperSlide key={index} className="flex">
-						<AdvancedCard
+					<SwiperSlide
+						key={index}
+						className="flex [&:last-child]:m-0"
+						style={{ width: `${!isMobile && "calc(25% - 18px)"}` }}
+					>
+						<SlideCard
 							imageSrc={`/frame${index + 1}.jpg`}
 							imageAlt="Дэушка"
-							type="review"
 							data={slide}
 						/>
 					</SwiperSlide>

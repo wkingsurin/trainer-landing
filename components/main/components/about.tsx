@@ -27,7 +27,7 @@ export default function About({ isMobile }: IProps) {
 	};
 
 	return (
-		<Section id="about" px isMobile={isMobile}>
+		<Section id="about" px isMobile={isMobile} container>
 			<TitleBlock
 				subtitle="о тренере"
 				title="Твой результат — моя личная ответственность"

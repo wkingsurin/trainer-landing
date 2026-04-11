@@ -44,7 +44,7 @@ export default function Offers({ isMobile }: IProps) {
 	};
 
 	return (
-		<Section id="offers" px isMobile={isMobile}>
+		<Section id="offers" px isMobile={isMobile} container>
 			<TitleBlock
 				subtitle="предложение"
 				title="Начни с удобного формата — результат будет в любом"

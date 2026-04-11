@@ -29,7 +29,7 @@ export default function Results({ isMobile }: IProps) {
 	];
 
 	return (
-		<Section id="results" px isMobile={isMobile}>
+		<Section id="results" px isMobile={isMobile} container>
 			<TitleBlock
 				subtitle="результаты"
 				title="Результаты моих клиентов говорят сами за себя"

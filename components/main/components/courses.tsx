@@ -34,7 +34,7 @@ export default function Courses({ isMobile }: IProps) {
 	];
 
 	return (
-		<Section id="courses" px isMobile={isMobile}>
+		<Section id="courses" px isMobile={isMobile} container>
 			<TitleBlock subtitle="курсы" title="Готовые программы" />
 			{cards.map((card) => {
 				const imageId = card.price.includes("9") ? "4" : "1";

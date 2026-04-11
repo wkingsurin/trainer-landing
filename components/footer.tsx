@@ -16,10 +16,12 @@ export default function Footer() {
 		{ id: "faq", text: "Вопросы" },
 		{ id: "feedback", text: "Обратная связь" },
 	];
+	const containerStyle = "container mx-auto max-w-[1280px]";
+	const desktopStyle = 'md:flex-row'
 
 	return (
-		<footer className="bg-foreground py-[30px] px-3">
-			<div className="flex flex-col gap-[30px]">
+		<footer className={`bg-foreground py-[30px] px-3`}>
+			<div className={`flex flex-col ${desktopStyle} gap-[30px] ${containerStyle}`}>
 				<List items={contacts} title="Контакты" type="contacts" />
 				<List items={info} title="Информация" type="info" />
 			</div>

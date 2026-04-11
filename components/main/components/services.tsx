@@ -17,7 +17,7 @@ export default function Services({ isMobile }: IProps) {
 	];
 
 	return (
-		<Section id="services" px isMobile={isMobile}>
+		<Section id="services" px isMobile={isMobile} container>
 			<TitleBlock subtitle="услуги" title="Услуги тренера" />
 			<SectionContent gap="10">
 				<CardsBlock cards={cards} type="services" />

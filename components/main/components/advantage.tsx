@@ -19,7 +19,7 @@ export default function Advantage({ isMobile }: IProps) {
 	];
 
 	return (
-		<Section id="advantage" className="flex flex-wrap" px isMobile={isMobile}>
+		<Section id="advantage" className="flex flex-wrap" px isMobile={isMobile} container>
 			<TitleBlock
 				subtitle="преимущества"
 				title="Почему со мной доходят до результата, а не сливаются"

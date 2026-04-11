@@ -8,7 +8,7 @@ interface IProps {
 
 export default function Feedback({ isMobile }: IProps) {
 	return (
-		<Section id="feedback" isMobile={isMobile}>
+		<Section id="feedback" isMobile={isMobile} container>
 			<TitleBlock
 				subtitle="обратная связь"
 				title="Сделай первый шаг к своему новому телу"

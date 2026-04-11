@@ -1,3 +1,4 @@
+import isMobileDevice from "@/components/hooks/isDeviceType";
 import CTAButton from "../../shared/cta-button";
 import Section from "../../shared/section";
 import BackgroundImage from "../widgets/background-image";
@@ -13,7 +14,7 @@ export default async function Hero({ isMobile }: IProps) {
 	const titleBlockStyle = isMobile
 		? "bottom-[120px]"
 		: "top-[250px] left-[120px] p-0! gap-6 items-center";
-	const sectionDesktopStyle = "container mx-auto max-w-[1280px] p-0!";
+	const sectionDesktopStyle = "p-0!";
 	const textBlockSize = isMobile
 		? "max-w-[1280px]"
 		: "max-w-[480px] left-[120px]";
@@ -29,6 +30,7 @@ export default async function Hero({ isMobile }: IProps) {
 			id="hero"
 			isMobile={isMobile}
 			className={`relative flex flex-col h-[100vh] pt-0 w-full box-content ${sectionDesktopStyle}`}
+			container
 		>
 			<BackgroundImage isMobile={isMobile} />
 			<div

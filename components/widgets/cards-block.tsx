@@ -14,7 +14,7 @@ interface IProps {
 	square?: boolean;
 	isMobile?: boolean;
 	className?: string;
-	type: "advantage" | "problems" | "solution" | "services" | "about";
+	type: "advantage" | "problems" | "solution";
 }
 
 export default function CardsBlock({

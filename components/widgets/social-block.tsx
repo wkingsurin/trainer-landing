@@ -6,9 +6,14 @@ import TelegramIcon from "../shared/telegram-icon";
 interface IProps {
 	className?: string;
 	isMobile?: boolean;
+	title?: boolean;
 }
 
-export default function SocialBlock({ className, isMobile = true }: IProps) {
+export default function SocialBlock({
+	className,
+	isMobile = true,
+	title,
+}: IProps) {
 	const socials = [
 		{
 			imageName: "instagram",
@@ -19,12 +24,15 @@ export default function SocialBlock({ className, isMobile = true }: IProps) {
 			icon: <TelegramIcon className="" size="size-5" />,
 		},
 	];
-	const style = isMobile ? "top-3 right-3 " : "";
+	const style = isMobile ? "top-3 right-3" : "";
+	const iconsStyle = title ? 'gap-5' : 'gap-2'
 
 	return (
-		<div className={`z-1200 flex gap-2 ${style} ${className}`}>
-			<ContentTitle className="text-[16px]">Написать лично:</ContentTitle>
-			<div className="flex gap-5">
+		<div className={`z-1200 flex flex-col gap-2 ${style} ${className}`}>
+			{title && (
+				<ContentTitle className="text-[16px]">Написать лично:</ContentTitle>
+			)}
+			<div className={`flex ${iconsStyle}`}>
 				{socials.map((social) => (
 					<Icon key={social.imageName}>{social.icon}</Icon>
 				))}

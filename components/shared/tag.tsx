@@ -3,10 +3,10 @@ import Card from "./card";
 interface IProps {
 	className?: string;
 	children: React.ReactNode | string;
-	isPremium?: boolean;
+	premium?: boolean;
 }
 
-export default function Tag({ className, children, isPremium }: IProps) {
+export default function Tag({ className, children, premium }: IProps) {
 	const options = {
 		fromColor: "from-foreground-400/50",
 		toColor: "to-foreground/50",
@@ -16,7 +16,7 @@ export default function Tag({ className, children, isPremium }: IProps) {
 
 	return (
 		<Card
-			className={`${className} px-3! py-[6px]! min-h-[30px]! bg-foreground-700! backdrop-blur p-[20px]! font-bold ${isPremium && 'text-accent'} min-w-[70px] justify-center`}
+			className={`${className} px-3! py-[6px]! min-h-[30px]! bg-foreground-700! backdrop-blur p-[20px]! font-bold ${premium && 'text-accent'} min-w-[70px] justify-center`}
 			options={options}
 		>
 			{children}

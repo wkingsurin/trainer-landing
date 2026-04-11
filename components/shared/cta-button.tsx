@@ -40,7 +40,9 @@ export default function CTAButton({
 
 	return (
 		<Button
-			className={`flex items-center justify-center bg-accent ${getSize()} py-[10px] border-[0.5px] border-transparent bg-linear-to-br from-surface-400/25 to-surface/25 bg-clip-border [background-origin:border-box] [box-shadow:inset_0_0_0_100vw_theme(colors.accent)] font-medium rounded-[12px] ${className}`}
+			className={`flex items-center justify-center bg-accent ${
+				isMobile ? "w-full min-h-[50px]" : getSize()
+			} py-[10px] border-[0.5px] border-transparent bg-linear-to-br from-surface-400/25 to-surface/25 bg-clip-border [background-origin:border-box] [box-shadow:inset_0_0_0_100vw_theme(colors.accent)] font-medium rounded-[12px] ${className}`}
 		>
 			{children}
 		</Button>

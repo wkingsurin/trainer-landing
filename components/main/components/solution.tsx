@@ -49,10 +49,11 @@ export default function Solution({ isMobile }: IProps) {
 	];
 
 	return (
-		<Section id="solution" px isMobile={isMobile}>
+		<Section id="solution" px isMobile={isMobile} container centered>
 			<TitleBlock
 				subtitle="решение"
 				title="Вот как мы доведём тебя до результата"
+				isMobile={isMobile}
 			/>
 			<SectionContent className="items-center w-full gap-[50px]">
 				<CardsBlock cards={cards} showId type="solution" isMobile={isMobile} />

@@ -24,8 +24,8 @@ export default async function Main({ children }: IProps) {
 			<Hero isMobile={isMobile} />
 			<Problem isMobile={isMobile} />
 			<Solution isMobile={isMobile} />
-			<Services isMobile={isMobile} />
-			<Advantage isMobile={isMobile} />
+			{/* <Services isMobile={isMobile} /> */}
+			{/* <Advantage isMobile={isMobile} /> */}
 			<About isMobile={isMobile} />
 			<Offers isMobile={isMobile} />
 			<Results isMobile={isMobile} />

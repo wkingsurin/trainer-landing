@@ -1,4 +1,3 @@
-import isMobileDevice from "@/components/hooks/isDeviceType";
 import CTAButton from "../../shared/cta-button";
 import Section from "../../shared/section";
 import BackgroundImage from "../widgets/background-image";

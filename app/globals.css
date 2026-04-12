@@ -120,6 +120,19 @@
 	--sh: 0 4px 24px 0 var(--foreground-100);
 }
 
+@theme {
+	@keyframes shadow-pulse {
+		0% {
+			box-shadow: 0 0 0 0 transparent;
+		}
+		100% {
+			box-shadow: 0 0 24px 0 var(--foreground);
+		}
+	}
+
+	--animate-shadow-fade: shadow-pulse 0.5s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
 @theme inline {
 	--color-background: var(--background);
 	--color-background-50: var(--background-50);
@@ -296,6 +309,15 @@ body {
 	}
 	html {
 		@apply font-sans;
+	}
+}
+
+@layer utilities {
+	[class*="-button"] {
+		box-shadow: 0 0 24px 0 var(--foreground);
+	}
+	[class*="swiper-button-"] {
+		box-shadow: 0 0 24px 0 transparent;
 	}
 }
 

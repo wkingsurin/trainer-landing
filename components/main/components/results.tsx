@@ -1,5 +1,5 @@
 import Section from "../../shared/section";
-import Carousel from "../../widgets/carousel";
+import Carousel from "../widgets/carousel/carousel";
 import TitleBlock from "../../widgets/title-block";
 
 interface IProps {

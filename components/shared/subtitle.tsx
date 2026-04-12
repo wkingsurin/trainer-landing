@@ -4,7 +4,7 @@ interface IProps {
 }
 
 export default function Subtitle({ isMobile, children }: IProps) {
-	const style = isMobile ? "text-[14px]" : "text-[16px]";
+	const style = isMobile ? "text-[16px]" : "text-[18px]";
 
-	return <span className={`text-center text-blue ${style}`}>{children}</span>;
+	return <span className={`text-center text-surface-400 trakcing-[2%] ${style}`}>{children}</span>;
 }

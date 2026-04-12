@@ -12,7 +12,7 @@ export default function SectionTitle({
 	const style = isMobile ? "text-[20px]" : "text-[32px]";
 
 	return (
-		<h2 className={`text-center font-bold ${style} ${className}`}>
+		<h2 className={`text-center font-bold trakcing-[2%] ${style} ${className}`}>
 			{children}
 		</h2>
 	);

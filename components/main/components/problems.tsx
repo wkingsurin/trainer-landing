@@ -9,7 +9,7 @@ interface IProps {
 export default function Problem({ isMobile }: IProps) {
 	const cards = [
 		{ id: "1", description: "Тренируешься, но вес не уходит" },
-		{ id: "2", description: "Не понимаешь, что и как делать в зале" },
+		{ id: "2", description: "Не понимаешь, что и как делать" },
 		{ id: "3", description: "Срываешься с диеты через 3 дня" },
 		{ id: "4", description: "Нет мотивации и контроля" },
 	];

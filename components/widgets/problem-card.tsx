@@ -18,7 +18,7 @@ export default function ProblemCard({
 	square,
 	isMobile,
 }: IProps) {
-	const cardStyle = isMobile ? "min-h-[70px]" : "min-h-[120px] font-bold";
+	const cardStyle = isMobile ? "min-h-[70px]" : "min-h-[150px] font-bold";
 	const numberStyle = isMobile
 		? "text-[36px] text-accent"
 		: "text-[36px] text-accent font-semibold";
@@ -31,13 +31,13 @@ export default function ProblemCard({
 	return (
 		<BaseCard
 			key={card.id}
-			className={`card relative group overflow-hidden ${
+			className={`card relative group overflow-hidden gap-[30px] tracking-[2%] font-exo_2 ${
 				(square && "aspect-square") || "flex-1"
 			} ${cardStyle}`}
 		>
 			<div className="absolute overlay left-0 top-0 z-1001 w-full h-full"></div>
 			{showId && <p className={`${numberStyle} z-1000`}>{card.id}</p>}
-			<p className={`z-1000 ${isMobile && "text-[14px]"}`}>
+			<p className={`z-1000 text-[18px] ${isMobile && "text-[14px]"}`}>
 				{typeof card.description === "string" && card.description}
 			</p>
 			{idIsOdd(card.id) && (

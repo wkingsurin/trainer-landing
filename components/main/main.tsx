@@ -17,7 +17,7 @@ interface IProps {
 
 export default async function Main({ children }: IProps) {
 	const isMobile = await isMobileDevice();
-	const style = isMobile ? "[&>*]:py-[30px]!" : "[&>*]:py-[90px]!";
+	const style = isMobile ? "[&>*]:py-[120px]!" : "[&>*]:py-[120px]!";
 
 	return (
 		<main className={`${style} [&>*:first-child]:py-0! [&>*:last-child]:pb-0`}>

@@ -1,50 +1,39 @@
 import CTAButton from "../shared/cta-button";
-import { Input } from "../ui/input";
+import Label from "../shared/label";
 
-export default function Form() {
+interface IProps {
+	isMobile?: boolean;
+}
+
+export default function Form({ isMobile }: IProps) {
+	const devicesStyle = isMobile ? "px-3 py-5" : "rounded-[20px] p-[30px]";
+	const style = "text-surface bg-foreground max-w-[720px] w-full";
+	const CTAType = isMobile ? "huge" : "medium";
+
+	const formStyle = isMobile ? "gap-[20px]" : "gap-[30px] items-end";
+
 	return (
-		<div className="bg-secondary flex flex-col gap-4 px-3 py-5 text-foreground">
-			<span className="text-center">
-				Оставь заявку — я свяжусь с тобой и подберу план под твою цель
-			</span>
-			<form className="flex flex-col gap-3">
-				<label
-					htmlFor="user-name"
-					className="flex flex-col gap-1 text-[14px] font-bold"
-				>
-					Имя
-					<Input
-						id="user-name"
-						placeholder="Как тебя зовут?"
-						className="min-h-10 font-normal border-[0.5px] border-background-200  focus-visible:ring-accent focus-visible:ring-[1.5px]   focus:border-[1px] bg-white  "
-					/>
-				</label>
-				<label
-					htmlFor="user-phone"
-					className="flex flex-col gap-1 text-[14px] font-bold"
-				>
-					Тел.
-					<Input
-						id="phone"
-						placeholder="Номер телефона"
-						className="min-h-10 font-normal border-[0.5px] border-background-200  focus-visible:ring-accent focus-visible:ring-[1.5px]   focus:border-[1px] bg-white"
-					/>
-				</label>
-				<label
-					htmlFor="user-email"
-					className="flex flex-col gap-1 text-[14px] font-bold"
-				>
-					<span className="flex gap-1">
-						Email
-						<p className="font-normal text-foreground-500">(не обязательно)</p>
-					</span>
-					<Input
-						id="user-email"
-						placeholder="email@example.ru"
-						className="min-h-10 font-normal border-[0.5px] border-background-200  focus-visible:ring-accent focus-visible:ring-[1.5px]  focus:border-[1px] bg-white"
-					/>
-				</label>
-				<CTAButton>Отправить</CTAButton>
+		<div className={`flex flex-col gap-4 ${style} ${devicesStyle}`}>
+			<form className={`flex flex-col ${formStyle}`}>
+				<Label
+					id="user-name"
+					type="text"
+					placeholder="Как тебя зовут?"
+					isMobile={isMobile}
+				/>
+				<Label
+					id="phone"
+					type="tel"
+					placeholder="Номер телефона"
+					isMobile={isMobile}
+				/>
+				<Label
+					id="email"
+					type="email"
+					placeholder="Email"
+					isMobile={isMobile}
+				/>
+				<CTAButton type={CTAType}>Отправить</CTAButton>
 			</form>
 		</div>
 	);

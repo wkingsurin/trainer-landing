@@ -10,11 +10,10 @@ export default function Feedback({ isMobile }: IProps) {
 	return (
 		<Section id="feedback" isMobile={isMobile} container centered>
 			<TitleBlock
-				subtitle="обратная связь"
 				title="Сделай первый шаг к своему новому телу"
 				isMobile={isMobile}
 			/>
-			<Form />
+			<Form isMobile={isMobile} />
 		</Section>
 	);
 }

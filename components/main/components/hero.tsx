@@ -12,7 +12,7 @@ interface IProps {
 export default async function Hero({ isMobile }: IProps) {
 	const titleBlockStyle = isMobile
 		? "bottom-[120px]"
-		: "top-[250px] left-[120px] p-0! gap-6 items-center";
+		: "top-[300px] left-[120px] p-0! gap-6 items-center";
 	const sectionDesktopStyle = "p-0!";
 	const textBlockSize = isMobile
 		? "max-w-[1280px]"
@@ -33,13 +33,13 @@ export default async function Hero({ isMobile }: IProps) {
 		>
 			<BackgroundImage isMobile={isMobile} />
 			<div
-				className={`absolute px-3 z-1100 container mx-auto ${textBlockSize} flex flex-col gap-[15px] ${titleBlockStyle}`}
+				className={`absolute px-3 z-1100 container mx-auto ${textBlockSize} flex flex-col gap-[40px] ${titleBlockStyle}`}
 			>
-				<div className={`flex flex-col gap-[6px] text-center ${contentGap}`}>
-					<SectionTitle className={`font-bold ${titleStyle}`}>
+				<div className={`flex flex-col gap-[20px] text-center ${contentGap}`}>
+					<SectionTitle className={`font-bold leading-[58px]! ${titleStyle}`}>
 						Фигура мечты — уже через 8 недель
 					</SectionTitle>
-					<span className={subtitleStyle}>
+					<span className={`leading-[23px] ${subtitleStyle}`}>
 						Персональные тренировки и питание под тебя — с поддержкой на каждом
 						этапе
 					</span>
@@ -48,7 +48,7 @@ export default async function Hero({ isMobile }: IProps) {
 					Начать
 				</CTAButton>
 				<SocialBlock
-					className="mt-[26px] flex-col items-center"
+					className="mt-[20px] flex-col items-center"
 					isMobile={isMobile}
 					title
 				/>

@@ -18,15 +18,15 @@ export default function AdvantageCard({
 	square,
 	isMobile,
 }: IProps) {
-	const cardStyle = isMobile ? "min-h-[70px]" : "min-h-[120px] font-bold";
+	const cardStyle = isMobile ? "min-h-[70px]" : "min-h-[150px] font-bold";
 
 	const worth =
 		typeof card.worth === "string" ? (
 			<p
-				className={`font-bold ${
+				className={`font-bold font-exo_2 ${
 					card.worth?.toLowerCase().includes("поддержка")
-						? "text-[20px]"
-						: "text-[24px]"
+						? "text-[22px]"
+						: "text-[26px]"
 				}`}
 			>
 				{card.worth}
@@ -42,7 +42,7 @@ export default function AdvantageCard({
 			} ${cardStyle}`}
 		>
 			{showWorth && worth}
-			<p className={`${showWorth && "text-[14px]"}`}>
+			<p className={`${showWorth && "text-[16px] text-surface-500 tracking-[2%] text-center"}`}>
 				{typeof card.description === "string" && card.description}
 			</p>
 		</BaseCard>

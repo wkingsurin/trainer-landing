@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Exo_2, Roboto } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
-const inter = Inter({
-	variable: "--font-inter",
+const roboto = Roboto({
+	variable: "--font-roboto",
 	subsets: ["latin", "cyrillic"],
+});
+const exo2 = Exo_2({
+	variable: "--font-exo_2",
+	subsets: ["latin", "cyrillic"],
+	weight: ["400", "500", "600", "700"]
 });
 
 export const metadata: Metadata = {
@@ -23,7 +28,7 @@ export default function RootLayout({
 	return (
 		<html
 			lang="ru"
-			className={cn("h-full", "antialiased", inter.variable, "font-sans")}
+			className={cn("h-full", "antialiased", exo2.variable, roboto.variable, "font-sans")}
 		>
 			<body className="min-h-full flex flex-col text-surface">
 				<Header />

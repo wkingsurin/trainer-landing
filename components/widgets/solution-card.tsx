@@ -41,7 +41,7 @@ export default function SolutionCard({
 			<div className="overlay absolute left-0 top-0 z-1001 w-full h-full"></div>
 			<div className="flex gap-[30px] items-center z-1000">
 				{showId && (
-					<p className={`min-w-[25px] leading-[44px] ${numberStyle}`}>
+					<p className={`min-w-[25px] leading-[44px] font-exo_2 ${numberStyle}`}>
 						{card.id}
 					</p>
 				)}

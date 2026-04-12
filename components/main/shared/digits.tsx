@@ -7,7 +7,7 @@ export default function Digits() {
 		{ id: "3", worth: "90%", description: "успешных кейсов" },
 	];
 
-	const titleStyle = "font-bold text-[32px] text-accent";
+	const titleStyle = "font-bold text-[32px] text-accent font-exo_2";
 	const textStyle = "text-base tracking-[3%] text-surface-400";
 
 	return (

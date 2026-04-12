@@ -23,12 +23,12 @@ export default async function Main({ children }: IProps) {
 		<main className={`${style} [&>*:first-child]:py-0! [&>*:last-child]:pb-0`}>
 			<Hero isMobile={isMobile} />
 			<Problem isMobile={isMobile} />
+			<Results isMobile={isMobile} />
 			<Solution isMobile={isMobile} />
 			{/* <Services isMobile={isMobile} /> */}
 			{/* <Advantage isMobile={isMobile} /> */}
-			<About isMobile={isMobile} />
 			<Offers isMobile={isMobile} />
-			<Results isMobile={isMobile} />
+			<About isMobile={isMobile} />
 			<Courses isMobile={isMobile} />
 			<FAQ isMobile={isMobile} />
 			<Feedback isMobile={isMobile} />

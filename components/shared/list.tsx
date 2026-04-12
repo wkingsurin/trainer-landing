@@ -28,7 +28,7 @@ export default function List({ title, items, type }: IProps) {
 						<Link href={`#${item.id}`}>{item.text}</Link>
 					</li>
 				))}
-				{type === "contacts" && <SocialBlock />}
+				{type === "contacts" && <SocialBlock className="items-start" />}
 			</ul>
 		</div>
 	);

@@ -32,7 +32,7 @@ export default function SocialBlock({
 			{title && (
 				<ContentTitle className="text-[18px]">Написать лично:</ContentTitle>
 			)}
-			<div className={`flex ${iconsStyle}`}>
+			<div className={`flex justify-center ${iconsStyle}`}>
 				{socials.map((social) => (
 					<Icon key={social.imageName}>{social.icon}</Icon>
 				))}

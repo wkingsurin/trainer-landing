@@ -5,18 +5,26 @@ import ContentTitle from "./content-title";
 interface IProps {
 	title?: string;
 	items: { id: string; text: string }[];
-	type: "contacts" | "info" | "navigation";
+	type: "contacts" | "info" | "navigation" | "services";
 }
 
 export default function List({ title, items, type }: IProps) {
 	const desktopStyle = "flex-row gap-[15px]";
 
 	return (
-		<div className="flex flex-col gap-3">
-			{title && <ContentTitle className="text-surface-500">{title}</ContentTitle>}
-			<ul className={`flex flex-col gap-[8px] ${type === 'navigation' && desktopStyle}`}>
+		<div className="flex flex-col gap-5">
+			{title && (
+				<ContentTitle className="text-surface-500 text-[18px]">
+					{title}
+				</ContentTitle>
+			)}
+			<ul
+				className={`flex flex-col gap-[12px] ${
+					type === "navigation" && desktopStyle
+				}`}
+			>
 				{items.map((item) => (
-					<li key={item.id} className="">
+					<li key={item.id} className="text-[18px] font-light">
 						<Link href={`#${item.id}`}>{item.text}</Link>
 					</li>
 				))}

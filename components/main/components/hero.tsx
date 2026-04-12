@@ -17,11 +17,11 @@ export default async function Hero({ isMobile }: IProps) {
 	const textBlockSize = isMobile
 		? "max-w-[1280px]"
 		: "max-w-[480px] left-[120px]";
-	const titleStyle = isMobile ? "text-[32px]" : "text-[48px]";
-	const subtitleStyle = isMobile ? "text-base" : "text-[20px]";
-	const contentGap = isMobile ? "gap-[6px]" : "gap-3";
+	const titleStyle = isMobile ? "text-[32px] leading-[38px]!" : "text-[48px] leading-[58px]!";
+	const subtitleStyle = isMobile ? "text-base leading-[23px]" : "text-[20px] leading-[23px]";
+	const contentGap = isMobile ? "gap-3" : "gap-5";
 	const buttonStyle = isMobile
-		? "min-h-[50px]"
+		? "min-h-[60px]"
 		: "min-w-[320px] rounded-[16px] text-[18px] font-bold";
 
 	return (
@@ -35,11 +35,11 @@ export default async function Hero({ isMobile }: IProps) {
 			<div
 				className={`absolute px-3 z-1100 container mx-auto ${textBlockSize} flex flex-col gap-[40px] ${titleBlockStyle}`}
 			>
-				<div className={`flex flex-col gap-[20px] text-center ${contentGap}`}>
-					<SectionTitle className={`font-bold leading-[58px]! ${titleStyle}`}>
+				<div className={`flex flex-col text-center ${contentGap}`}>
+					<SectionTitle className={`font-bold ${titleStyle}`}>
 						Фигура мечты — уже через 8 недель
 					</SectionTitle>
-					<span className={`leading-[23px] ${subtitleStyle}`}>
+					<span className={`${subtitleStyle}`}>
 						Персональные тренировки и питание под тебя — с поддержкой на каждом
 						этапе
 					</span>

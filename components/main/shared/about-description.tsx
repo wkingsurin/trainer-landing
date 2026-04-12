@@ -22,10 +22,10 @@ export default function AboutDescription({ isMobile }: IProps) {
 		},
 	];
 
-	const cardsStyle = isMobile ? "gap-[10px]" : "gap-5";
+	const cardsStyle = isMobile ? "gap-[20px]" : "gap-5";
 
 	return (
-		<div className="flex flex-col gap-10 max-w-[480px]">
+		<div className="flex flex-col gap-10 max-w-[480px] items-center">
 			<div className={`flex flex-col ${cardsStyle}`}>
 				{cards.map((card) => (
 					<Card key={card.id} className="p-5!">

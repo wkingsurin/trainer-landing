@@ -55,7 +55,7 @@ export default function Solution({ isMobile }: IProps) {
 				title="Вот как мы доведём тебя до результата"
 				isMobile={isMobile}
 			/>
-			<SectionContent className="items-center w-full gap-[50px]">
+			<SectionContent className={`items-center w-full ${isMobile ? 'gap-[30px]' : 'gap-[50px]'}`}>
 				<CardsBlock cards={cards} showId type="solution" isMobile={isMobile} />
 				<CTAButton isMobile={isMobile} type="medium">
 					Начать

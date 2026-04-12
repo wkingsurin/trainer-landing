@@ -42,7 +42,7 @@ export default function CTAButton({
 		<Button
 			className={`flex items-center justify-center bg-accent ${
 				isMobile ? "w-full min-h-[50px]" : getSize()
-			} py-[10px] border-[0.5px] border-transparent bg-linear-to-br from-surface-400/25 to-surface/25 bg-clip-border [background-origin:border-box] [box-shadow:inset_0_0_0_100vw_theme(colors.accent)] font-medium rounded-[16px] tracking-[2%] ${className}`}
+			} py-[10px] border-[0.5px] border-transparent bg-linear-to-br from-surface-400/25 to-surface/25 bg-clip-border [background-origin:border-box] [box-shadow:inset_0_0_0_100vw_theme(colors.accent)] text-[16px] font-medium rounded-[16px] tracking-[2%] ${className}`}
 		>
 			{children}
 		</Button>

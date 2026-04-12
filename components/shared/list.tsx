@@ -9,7 +9,7 @@ interface IProps {
 }
 
 export default function List({ title, items, type }: IProps) {
-	const desktopStyle = "flex-row gap-[15px]";
+	const desktopStyle = "flex-row gap-[20px]";
 
 	return (
 		<div className="flex flex-col gap-5">
@@ -24,7 +24,7 @@ export default function List({ title, items, type }: IProps) {
 				}`}
 			>
 				{items.map((item) => (
-					<li key={item.id} className="text-[18px] font-light">
+					<li key={item.id} className="text-[18px] font-light hover:text-accent transition ease-in-out">
 						<Link href={`#${item.id}`}>{item.text}</Link>
 					</li>
 				))}

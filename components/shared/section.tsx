@@ -17,13 +17,13 @@ export default function Section({
 	centered = false,
 	children,
 }: IProps) {
-	const style = isMobile ? "gap-[30px]" : "gap-[50px]";
+	const style = isMobile ? "gap-[50px]" : "gap-[50px]";
 
 	return (
 		<section id={id} className={`flex flex-col ${style} ${className}`}>
 			{container ? (
 				<div
-					className={`relative container mx-auto max-w-[1280px] h-full flex flex-col box-border ${px && "px-3"} ${style} ${
+					className={`relative container mx-auto max-w-[1280px] h-full flex flex-col box-border ${px && "px-4"} ${style} ${
 						centered && "items-center"
 					}`}
 				>

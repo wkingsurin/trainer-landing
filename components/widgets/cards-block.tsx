@@ -24,7 +24,7 @@ export default function CardsBlock({
 	type,
 }: IProps) {
 	const blockStyle = isMobile
-		? "flex flex-col gap-[10px]"
+		? "flex flex-col gap-[30px]"
 		: type === "solution"
 		? "grid grid-cols-2 gap-5"
 		: "flex flex-row gap-5 z-1200";

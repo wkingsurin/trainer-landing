@@ -17,11 +17,11 @@ export default function SocialBlock({
 	const socials = [
 		{
 			imageName: "instagram",
-			icon: <InstamgramIcon className="transition group-hover:fill-surface" size="size-5" />,
+			icon: <InstamgramIcon className="transition group-hover:fill-surface" size={`${isMobile ? "size-6" : 'size-6'}`} />,
 		},
 		{
 			imageName: "telegram",
-			icon: <TelegramIcon className="transition group-hover:fill-surface" size="size-5" />,
+			icon: <TelegramIcon className="transition group-hover:fill-surface" size={`${isMobile ? "size-6" : 'size-6'}`} />,
 		},
 	];
 	const style = isMobile ? "top-3 right-3" : "";
@@ -30,7 +30,7 @@ export default function SocialBlock({
 	return (
 		<div className={`z-1200 flex flex-col gap-[15px] ${style} ${className}`}>
 			{title && (
-				<ContentTitle className="text-[16px]">Написать лично:</ContentTitle>
+				<ContentTitle className="text-[18px]">Написать лично:</ContentTitle>
 			)}
 			<div className={`flex ${iconsStyle}`}>
 				{socials.map((social) => (

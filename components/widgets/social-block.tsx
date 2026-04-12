@@ -17,18 +17,18 @@ export default function SocialBlock({
 	const socials = [
 		{
 			imageName: "instagram",
-			icon: <InstamgramIcon className="" size="size-5" />,
+			icon: <InstamgramIcon className="transition group-hover:fill-surface" size="size-5" />,
 		},
 		{
 			imageName: "telegram",
-			icon: <TelegramIcon className="" size="size-5" />,
+			icon: <TelegramIcon className="transition group-hover:fill-surface" size="size-5" />,
 		},
 	];
 	const style = isMobile ? "top-3 right-3" : "";
-	const iconsStyle = title ? 'gap-5' : 'gap-2'
+	const iconsStyle = title ? 'gap-5' : 'gap-5'
 
 	return (
-		<div className={`z-1200 flex flex-col gap-2 ${style} ${className}`}>
+		<div className={`z-1200 flex flex-col gap-[15px] ${style} ${className}`}>
 			{title && (
 				<ContentTitle className="text-[16px]">Написать лично:</ContentTitle>
 			)}

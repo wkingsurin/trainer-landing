@@ -45,7 +45,7 @@ export default function Courses({ isMobile }: IProps) {
 			/>
 			<SectionContent className={`w-full ${style}`}>
 				{cards.map((card) => {
-					const imageId = card.price.includes("9") ? "4" : "1";
+					const imageId = card.price.includes("9") ? "3" : "1";
 
 					return (
 						<OfferCard
@@ -54,7 +54,7 @@ export default function Courses({ isMobile }: IProps) {
 							imageAlt="Алина Самойлова"
 							isMobile={isMobile}
 							data={card}
-							premium={imageId === "4"}
+							premium={imageId === "3"}
 						/>
 					);
 				})}

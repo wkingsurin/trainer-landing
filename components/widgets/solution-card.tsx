@@ -59,7 +59,7 @@ export default function SolutionCard({
 
 			{hasBackground && (
 				<Image
-					src={`/${card.id}.jpg`}
+					src={`/-${card.id}.jpg`}
 					alt="Girl"
 					fill
 					className={`absolute z-999 ${imageStyle} rounded-[16px] opacity-20 scale-105 transition duration-[0.7s] grayscale group-hover:opacity-20 group-hover:scale-100`}

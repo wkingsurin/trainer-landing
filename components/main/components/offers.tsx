@@ -62,14 +62,14 @@ export default function Offers({ isMobile }: IProps) {
 					isMobile={isMobile}
 				/>
 				<OfferCard
-					imageSrc="/3.jpg"
+					imageSrc="/1.jpg"
 					imageAlt="Алина Самойлова"
 					data={card2}
 					premium
 					isMobile={isMobile}
 				/>
 				<OfferCard
-					imageSrc="/last.jpg"
+					imageSrc="/2.jpg"
 					imageAlt="Алина Самойлова"
 					data={card3}
 					isMobile={isMobile}

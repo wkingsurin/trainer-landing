@@ -73,8 +73,9 @@ export default function Carousel({ isMobile, slides }: IProps) {
 						style={{ width: `${!isMobile && "calc(25% - 18px)"}` }}
 					>
 						<SlideCard
-							imageSrc={`/frame${index + 1}.jpg`}
+							imageSrc={`/frame-${index + 1}.jpg`}
 							imageAlt="Дэушка"
+							isMobile={isMobile}
 							data={slide}
 						/>
 					</SwiperSlide>

@@ -7,7 +7,7 @@ export default async function Header() {
 
 	return (
 		<header
-			className={`fixed z-1999 flex w-full bg-foreground-700 backdrop-blur-2xl shadow-sh ${style}`}
+			className={`fixed z-1999 flex w-full bg-foreground-700 backdrop-blur-2xl ${style}`}
 		>
 			<div className="container mx-auto max-w-[1280px] px-3 flex items-center justify-between min-h-[80px]">
 				<span className="flex flex-wrap w-min text-accent text-[20px] font-bold font-exo_2">

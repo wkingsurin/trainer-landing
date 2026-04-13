@@ -16,7 +16,6 @@ interface IProps {
 export default function SolutionCard({
 	card,
 	showId,
-	square,
 	isMobile,
 }: IProps) {
 	const cardStyle = isMobile
@@ -34,9 +33,7 @@ export default function SolutionCard({
 	return (
 		<BaseCard
 			key={card.id}
-			className={`card relative group overflow-hidden flex-col items-start gap-[15px] ${
-				(square && "aspect-square") || "flex-1"
-			} ${cardStyle}`}
+			className={`card relative group overflow-hidden flex-col items-start gap-[15px] ${cardStyle}`}
 		>
 			<div className="flex gap-[30px] items-center z-1000">
 				{showId && (
@@ -56,7 +53,6 @@ export default function SolutionCard({
 					))}
 			</ul>
 
-			<div className="overlay absolute left-0 top-0 z-1001 w-full h-full"></div>
 			{hasBackground && (
 				<Image
 					src={`/-${card.id}.jpg`}

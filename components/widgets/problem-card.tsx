@@ -35,11 +35,12 @@ export default function ProblemCard({
 				(square && "aspect-square") || "flex-1"
 			} ${cardStyle}`}
 		>
-			<div className="absolute overlay left-0 top-0 z-1001 w-full h-full"></div>
-			{showId && <p className={`${numberStyle} z-1000`}>{card.id}</p>}
-			<p className={`z-1000 text-[18px] ${isMobile && "text-[14px]"}`}>
+			{showId && <p className={`${numberStyle} z-1001`}>{card.id}</p>}
+			<p className={`z-1001 text-[18px] ${isMobile && "text-[14px]"}`}>
 				{typeof card.description === "string" && card.description}
 			</p>
+			
+			<div className="absolute overlay left-0 top-0 z-1000 w-full h-full"></div>
 			{idIsOdd(card.id) && (
 				<Image
 					src={`/pain-${card.id}.jpg`}

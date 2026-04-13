@@ -38,7 +38,6 @@ export default function SolutionCard({
 				(square && "aspect-square") || "flex-1"
 			} ${cardStyle}`}
 		>
-			<div className="overlay absolute left-0 top-0 z-1001 w-full h-full"></div>
 			<div className="flex gap-[30px] items-center z-1000">
 				{showId && (
 					<p className={`min-w-[25px] leading-[44px] font-exo_2 ${numberStyle}`}>
@@ -48,7 +47,7 @@ export default function SolutionCard({
 				<ContentTitle className="text-[18px]">{card.title}</ContentTitle>
 			</div>
 
-			<ul className="ml-[55px]">
+			<ul className="relative z-1000 ml-[55px]">
 				{typeof card.description === "object" &&
 					card.description.map((data) => (
 						<li key={data.text} className="font-normal">
@@ -57,6 +56,7 @@ export default function SolutionCard({
 					))}
 			</ul>
 
+			<div className="overlay absolute left-0 top-0 z-1001 w-full h-full"></div>
 			{hasBackground && (
 				<Image
 					src={`/-${card.id}.jpg`}

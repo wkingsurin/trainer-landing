@@ -34,7 +34,7 @@ export default function Courses({ isMobile }: IProps) {
 		},
 	];
 
-	const style = isMobile ? "gap-5" : "flex-row justify-center gap-5";
+	const style = isMobile ? "gap-[30px]" : "flex-row justify-center gap-5";
 
 	return (
 		<Section id="courses" px isMobile={isMobile} container centered>

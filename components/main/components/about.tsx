@@ -16,7 +16,7 @@ export default function About({ isMobile }: IProps) {
 	};
 
 	const style = isMobile ? "gap-[40px]" : "gap-[50px]";
-	const contentStyle = isMobile ? "flex-col gap-5" : "flex-row gap-[70px]";
+	const contentStyle = isMobile ? "flex-col gap-[30px]" : "flex-row gap-[70px]";
 
 	return (
 		<Section

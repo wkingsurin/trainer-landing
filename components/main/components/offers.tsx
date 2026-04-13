@@ -44,7 +44,7 @@ export default function Offers({ isMobile }: IProps) {
 		],
 	};
 
-	const style = isMobile ? "gap-5" : "flex-row justify-center gap-5";
+	const style = isMobile ? "gap-[30px]" : "flex-row justify-center gap-5";
 
 	return (
 		<Section id="offers" px isMobile={isMobile} container centered>

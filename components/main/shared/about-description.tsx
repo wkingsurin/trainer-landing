@@ -22,7 +22,7 @@ export default function AboutDescription({ isMobile }: IProps) {
 		},
 	];
 
-	const cardsStyle = isMobile ? "gap-[20px]" : "gap-5";
+	const cardsStyle = isMobile ? "gap-[30px]" : "gap-5";
 
 	return (
 		<div className="flex flex-col gap-10 max-w-[480px] items-center">

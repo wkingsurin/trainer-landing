@@ -32,7 +32,7 @@ export default function SlideCard({
 		? ""
 		: `${animateStyle} scale-101group-hover:scale-103 backface-hidden`;
 
-	const mobileStyle = "w-full";
+	const mobileStyle = "max-w-[320px]";
 	const desktopStyle = "w-full";
 
 	const descriptionStyle = isMobile

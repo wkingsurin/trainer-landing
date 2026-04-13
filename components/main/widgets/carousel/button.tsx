@@ -9,7 +9,7 @@ export const Button = forwardRef<HTMLDivElement, IProps>(
 	({ direction }, ref) => {
 		const buttonType = direction === "left" ? "prev" : "next";
 		const directionStyle =
-			direction === "left" ? "left-[-25px]" : "right-[-25px]";
+			direction === "left" ? "left-[12px] xl:left-[-25px]" : "right-[12px] xl:right-[-25px]";
 		const style = "transition-all ease-in-out delay-[0.5s] animate-shadow-fade";
 
 		return (

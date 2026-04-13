@@ -70,7 +70,7 @@ export default function Carousel({ isMobile, slides }: IProps) {
 					<SwiperSlide
 						key={index}
 						className="flex [&:last-child]:m-0"
-						style={{ width: `${!isMobile && "calc(25% - 18px)"}` }}
+						style={{ width: `${!isMobile ? "calc(25% - 18px)" : "calc(100% - 40px"}` }}
 					>
 						<SlideCard
 							imageSrc={`/frame-${index + 1}.jpg`}

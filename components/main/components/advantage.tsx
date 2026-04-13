@@ -19,17 +19,16 @@ export default function Advantage({ isMobile }: IProps) {
 	];
 
 	return (
-		<Section id="advantage" className="flex flex-wrap" px isMobile={isMobile} container>
+		<Section id="advantage" className="flex flex-col" px isMobile={isMobile} container>
 			<TitleBlock
 				subtitle="преимущества"
 				title="Почему со мной доходят до результата, а не сливаются"
 				isMobile={isMobile}
 			/>
 			<CardsBlock
-				className="grid grid-cols-2 grid-rows-2"
 				cards={cards}
 				showWorth
-				square
+				isMobile={isMobile}
 				type="advantage"
 			/>
 		</Section>

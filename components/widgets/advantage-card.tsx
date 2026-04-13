@@ -8,17 +8,15 @@ interface IProps {
 		worth?: string | React.ReactNode;
 	};
 	showWorth?: boolean;
-	square?: boolean;
 	isMobile?: boolean;
 }
 
 export default function AdvantageCard({
 	card,
 	showWorth,
-	square,
 	isMobile,
 }: IProps) {
-	const cardStyle = isMobile ? "min-h-[70px]" : "min-h-[150px] font-bold";
+	const cardStyle = isMobile ? "min-h-[70px]" : "flex-1 min-h-[150px] font-bold";
 
 	const worth =
 		typeof card.worth === "string" ? (
@@ -37,9 +35,7 @@ export default function AdvantageCard({
 
 	return (
 		<BaseCard
-			className={`card relative flex flex-col justify-center group overflow-hidden font-normal ${
-				(square && "aspect-square") || "flex-1"
-			} ${cardStyle}`}
+			className={`card relative flex flex-col justify-center group overflow-hidden font-normal ${cardStyle}`}
 		>
 			{showWorth && worth}
 			<p className={`${showWorth && "text-[16px] text-surface-500 tracking-[2%] text-center"}`}>

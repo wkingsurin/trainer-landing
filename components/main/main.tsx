@@ -22,6 +22,7 @@ export default async function Main({ children }: IProps) {
 	return (
 		<main className={`${style} [&>*:first-child]:py-0! [&>*:last-child]:pb-0`}>
 			<Hero isMobile={isMobile} />
+			{isMobile && <Advantage isMobile={isMobile} />}
 			<Problem isMobile={isMobile} />
 			<Results isMobile={isMobile} />
 			<Solution isMobile={isMobile} />

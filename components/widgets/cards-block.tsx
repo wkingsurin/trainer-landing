@@ -11,7 +11,6 @@ interface IProps {
 	}[];
 	showId?: boolean;
 	showWorth?: boolean;
-	square?: boolean;
 	isMobile?: boolean;
 	className?: string;
 	type: "advantage" | "problems" | "solution";

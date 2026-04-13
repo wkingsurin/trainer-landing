@@ -6,6 +6,8 @@ interface IProps {
 }
 
 export default function TelegramIcon({ size, className }: IProps) {
+	const animateStyle = 'transition duration-[0.5s] ease-in-out'
+
 	return (
 		<svg
 			width="16"
@@ -18,7 +20,7 @@ export default function TelegramIcon({ size, className }: IProps) {
 			<path
 				d="M14.1957 1.94265C12.227 2.75801 3.78574 6.25449 1.45342 7.20745C-0.11074 7.81785 0.80494 8.39017 0.80494 8.39017C0.80494 8.39017 2.14014 8.84793 3.28478 9.19129C4.42926 9.53465 5.03966 9.15321 5.03966 9.15321L10.4189 5.52889C12.3264 4.23177 11.8686 5.29993 11.4107 5.75785C10.4189 6.74985 8.77838 8.31385 7.40494 9.57289C6.79454 10.107 7.09966 10.5647 7.36686 10.7937C8.3587 11.633 11.0675 13.3498 11.22 13.4642C12.0259 14.0348 13.6112 14.8561 13.8523 13.1209L14.8061 7.13129C15.1113 5.10937 15.4165 3.23993 15.4545 2.70585C15.5691 1.40857 14.1957 1.94265 14.1957 1.94265Z"
 				fill="#EAEAEA"
-				className={`${className} fill-accent`}
+				className={`${className} fill-accent ${animateStyle}`}
 			/>
 		</svg>
 	);

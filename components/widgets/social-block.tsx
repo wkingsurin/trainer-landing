@@ -17,10 +17,12 @@ export default function SocialBlock({
 	const socials = [
 		{
 			imageName: "instagram",
+			link: '#instagram',
 			icon: <InstamgramIcon className="transition group-hover:fill-surface" size={`${isMobile ? "size-6" : 'size-6'}`} />,
 		},
 		{
 			imageName: "telegram",
+			link: '#telegram',
 			icon: <TelegramIcon className="transition group-hover:fill-surface" size={`${isMobile ? "size-6" : 'size-6'}`} />,
 		},
 	];
@@ -34,7 +36,7 @@ export default function SocialBlock({
 			)}
 			<div className={`flex justify-center ${iconsStyle}`}>
 				{socials.map((social) => (
-					<Icon key={social.imageName}>{social.icon}</Icon>
+					<Icon key={social.imageName} link={social.link}>{social.icon}</Icon>
 				))}
 			</div>
 		</div>

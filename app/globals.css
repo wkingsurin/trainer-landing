@@ -259,13 +259,6 @@
 	--color-faq: var(--surface-200);
 }
 
-body {
-	color: var(--surface);
-	font-family: var(--font-roboto), -apple-system, BlinkMacSystemFont, Segoe UI,
-		Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-		sans-serif;
-}
-
 .dark {
 	--background: oklch(0.1822 0 0);
 	--foreground: oklch(0.235 0 0);
@@ -328,4 +321,19 @@ body {
 			border-bottom-color: var(--color-faq);
 		}
 	}
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	color: var(--surface);
+	font-family: var(--font-roboto), -apple-system, BlinkMacSystemFont, Segoe UI,
+		Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+		sans-serif;
+}
+
+button, a, [class*="-button"] {
+	cursor: pointer;
 }

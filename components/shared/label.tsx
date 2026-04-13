@@ -8,7 +8,7 @@ interface IProps {
 }
 
 export default function Label({ isMobile, id, placeholder, type }: IProps) {
-	const labelStyle = "text-[18px] text-surface-400 w-full";
+	const labelStyle = "text-[18px] text-surface-400 w-full focus-within:text-accent";
 	const inputStyle = isMobile
 		? "text-[18px]! placeholder:text-[18px]"
 		: "text-[20px]! placeholder:text-[20px]";

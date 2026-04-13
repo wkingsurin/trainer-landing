@@ -47,7 +47,7 @@ export default function Carousel({ isMobile, slides }: IProps) {
 	}, []);
 
 	return (
-		<div className={`container relative scrollbar-hide`}>
+		<div className={`container w-full relative scrollbar-hide`}>
 			<Swiper
 				modules={[Pagination, Navigation]}
 				navigation={{
@@ -69,8 +69,7 @@ export default function Carousel({ isMobile, slides }: IProps) {
 				{slides.map((slide, index) => (
 					<SwiperSlide
 						key={index}
-						className="flex [&:last-child]:m-0"
-						style={{ width: `${!isMobile ? "calc(25% - 18px)" : "calc(100% - 40px"}` }}
+						className="flex [&:last-child]:m-0 sm:basis-[calc(50%-9px)] md:basis-[calc(33.333%-12px)] xl:basis-[calc(25%-18px)]"
 					>
 						<SlideCard
 							imageSrc={`/frame-${index + 1}.jpg`}

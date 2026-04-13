@@ -259,6 +259,21 @@
 	--color-faq: var(--surface-200);
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	color: var(--surface);
+	font-family: var(--font-roboto), -apple-system, BlinkMacSystemFont, Segoe UI,
+		Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+		sans-serif;
+}
+
+button, a, [class*="-button"] {
+	cursor: pointer;
+}
+
 .dark {
 	--background: oklch(0.1822 0 0);
 	--foreground: oklch(0.235 0 0);
@@ -308,9 +323,12 @@
 @layer utilities {
 	[class*="-button"] {
 		box-shadow: 0 0 24px 0 var(--foreground);
+		opacity: 100;
 	}
 	[class*="swiper-button-"] {
+		cursor: default !important;
 		box-shadow: 0 0 24px 0 transparent;
+		opacity: 0;
 	}
 }
 
@@ -321,19 +339,4 @@
 			border-bottom-color: var(--color-faq);
 		}
 	}
-}
-
-html {
-	scroll-behavior: smooth;
-}
-
-body {
-	color: var(--surface);
-	font-family: var(--font-roboto), -apple-system, BlinkMacSystemFont, Segoe UI,
-		Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-		sans-serif;
-}
-
-button, a, [class*="-button"] {
-	cursor: pointer;
 }

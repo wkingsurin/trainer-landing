@@ -24,28 +24,23 @@ export default function OfferCard({
 	imageSrc,
 	imageAlt,
 	premium,
-  isMobile,
+	isMobile,
 	children,
 	data,
 }: IProps) {
-	const options = {
-		fromColor: premium ? "from-accent-400" : "from-surface-400/15",
-		toColor: premium ? "to-accent" : "to-surface/15",
-		borderWeight: premium ? "border-[2px]" : "border-[0.5px]",
-		shadowColor: premium
-			? "[box-shadow:inset_0_0_0_100vw_theme(colors.foreground)]"
-			: "[box-shadow:inset_0_0_0_100vw_theme(colors.foreground)]",
-	};
+	const style = isMobile ? "flex-1" : "w-1/4";
 
-  const style = isMobile ? "flex-1" : "w-1/4"
+	const animateStyle = "transition transform-gpu duration-[0.5s]";
+	const animationStyle = isMobile
+		? ""
+		: `${animateStyle} scale-101 group-hover:scale-103 backface-hidden`;
 
 	return (
 		<Card
-			className={`advanced-card p-0! relative min-h-[500px] ${style} ${className}`}
-			options={options}
+			className={`group advanced-card p-0! relative min-h-[500px] overflow-hidden ${style} ${className}`}
 		>
 			<Image
-				className="absolute w-full h-full rounded-[20px] object-cover brightness-90"
+				className={`absolute w-full h-full rounded-[20px] object-cover brightness-90 ${animationStyle}`}
 				fill
 				priority
 				src={imageSrc}

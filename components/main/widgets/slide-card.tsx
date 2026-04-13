@@ -26,25 +26,25 @@ export default function SlideCard({
 	children,
 	data,
 }: IProps) {
-	const options = {
-		fromColor: premium ? "from-accent-400" : "from-surface-400/15",
-		toColor: premium ? "to-accent" : "to-surface/15",
-		borderWeight: premium ? "border-[2px]" : "border-[0.5px]",
-		shadowColor: premium
-			? "[box-shadow:inset_0_0_0_100vw_theme(colors.foreground)]"
-			: "[box-shadow:inset_0_0_0_100vw_theme(colors.foreground)]",
-	};
+	const animateStyle = "transition transform-gpu duration-[0.7s]";
+
+	const animationStyle = isMobile
+		? ""
+		: `${animateStyle} scale-101group-hover:scale-103 backface-hidden`;
 
 	const mobileStyle = "w-full";
 	const desktopStyle = "w-full";
 
+	const descriptionStyle = isMobile
+		? `${animateStyle} translate-y-[305px] group-hover:translate-y-0`
+		: "";
+
 	return (
 		<Card
-			className={`advanced-card p-0! relative min-h-[500px] ${mobileStyle} ${desktopStyle} ${className}`}
-			options={options}
+			className={`group advanced-card p-0! relative min-h-[500px] overflow-hidden ${mobileStyle} ${desktopStyle} ${className}`}
 		>
 			<Image
-				className="absolute w-full h-full rounded-[20px] object-cover brightness-90"
+				className={`absolute w-full h-full rounded-[20px] object-cover brightness-90 ${animationStyle}`}
 				fill
 				priority
 				src={imageSrc}
@@ -54,7 +54,7 @@ export default function SlideCard({
 				className={`absolute z-1200 w-full h-full flex flex-col justify-between items-end p-3 text-[14px] justify-end`}
 			>
 				<div className="flex flex-col items-end gap-3 w-full">
-					<DescriptionBlock className="leading-[19px]">
+					<DescriptionBlock className={`leading-[19px] ${descriptionStyle}`}>
 						<span
 							className={`text-base font-bold leading-[19px] ${
 								premium && "text-accent"

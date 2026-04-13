@@ -23,14 +23,19 @@ export default function AboutCard({
 	isMobile,
 	children,
 }: IProps) {
-	const style = isMobile ? "" : "min-w-[351px] w-1/4";
+	const style = isMobile ? "" : "group min-w-[351px] w-1/4";
+
+	const animateStyle = "transition transform-gpu scale-101 duration-[0.5s]";
+	const animationStyle = isMobile
+		? ""
+		: `${animateStyle} scale-101 group-hover:scale-103 backface-hidden`;
 
 	return (
 		<Card
-			className={`advanced-card p-0! relative min-h-[500px] ${style} ${className}`}
+			className={`advanced-card p-0! relative min-h-[500px] overflow-hidden ${style} ${className}`}
 		>
 			<Image
-				className="absolute w-full h-full rounded-[20px] object-cover brightness-90"
+				className={`absolute w-full h-full rounded-[20px] object-cover brightness-90 ${animationStyle}`}
 				fill
 				priority
 				src={imageSrc}

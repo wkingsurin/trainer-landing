@@ -1,4 +1,5 @@
 import isMobileDevice from "../hooks/isDeviceType";
+import LoadingScreen from "../widgets/loading-screen/loading-screen";
 import About from "./components/about";
 import Advantage from "./components/advantage";
 import Courses from "./components/courses";
@@ -20,20 +21,25 @@ export default async function Main({ children }: IProps) {
 	const style = isMobile ? "[&>*]:py-[120px]" : "[&>*]:py-[120px]!";
 
 	return (
-		<main className={`${style} [&>*:first-child]:py-0! [&>*:last-child]:pb-0`}>
-			<Hero isMobile={isMobile} />
-			{isMobile && <Advantage isMobile={isMobile} />}
-			<Problem isMobile={isMobile} />
-			<Results isMobile={isMobile} />
-			<Solution isMobile={isMobile} />
-			{/* <Services isMobile={isMobile} /> */}
-			{/* <Advantage isMobile={isMobile} /> */}
-			<Offers isMobile={isMobile} />
-			<About isMobile={isMobile} />
-			<Courses isMobile={isMobile} />
-			<FAQ isMobile={isMobile} />
-			<Feedback isMobile={isMobile} />
-			{children}
-		</main>
+		<>
+			<LoadingScreen />
+			<main
+				className={`${style} [&>*:first-child]:py-0! [&>*:last-child]:pb-0`}
+			>
+				<Hero isMobile={isMobile} />
+				{isMobile && <Advantage isMobile={isMobile} />}
+				<Problem isMobile={isMobile} />
+				<Results isMobile={isMobile} />
+				<Solution isMobile={isMobile} />
+				{/* <Services isMobile={isMobile} /> */}
+				{/* <Advantage isMobile={isMobile} /> */}
+				<Offers isMobile={isMobile} />
+				<About isMobile={isMobile} />
+				<Courses isMobile={isMobile} />
+				<FAQ isMobile={isMobile} />
+				<Feedback isMobile={isMobile} />
+				{children}
+			</main>
+		</>
 	);
 }

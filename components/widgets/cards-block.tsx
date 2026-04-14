@@ -1,6 +1,10 @@
+"use client";
+import { motion } from "framer-motion";
+
 import ProblemCard from "./problem-card";
 import AdvantageCard from "./advantage-card";
 import SolutionCard from "./solution-card";
+import { useUIStore } from "@/lib/store/ui.store";
 
 interface IProps {
 	cards: {
@@ -22,17 +26,30 @@ export default function CardsBlock({
 	className,
 	type,
 }: IProps) {
+	const isLoading = useUIStore((s) => s.isLoading);
+
 	const blockStyle = isMobile
 		? "flex flex-col gap-[30px]"
 		: type === "solution"
 		? "grid grid-cols-2 gap-5"
 		: "flex flex-row gap-5 z-1200";
 
+	const variants = {
+		hidden: { opacity: 0 },
+		visible: {
+			opacity: 1,
+			transition: {
+				staggerChildren: 0.3,
+				delayChildren: 0.3,
+			},
+		},
+	};
+
 	const getCards = () => {
 		switch (type) {
 			case "advantage": {
 				return cards.map((card) => {
-					return <AdvantageCard key={card.id} card={card} showWorth />;
+					return <AdvantageCard key={card.id} card={card} showWorth isMobile />;
 				});
 			}
 			case "problems": {
@@ -49,6 +66,14 @@ export default function CardsBlock({
 	};
 
 	return (
-		<div className={`w-full ${blockStyle} ${className}`}>{getCards()}</div>
+		<motion.div
+			variants={variants}
+			initial="hidden"
+			animate={!isLoading ? "visible" : 'hidden'}
+			viewport={{ once: true, amount: 0.2 }}
+			className={`w-full ${blockStyle} ${className}`}
+		>
+			{getCards()}
+		</motion.div>
 	);
 }

@@ -4,6 +4,8 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import FAQHydrator from "@/components/faq-hydrator";
+import { FAQ } from "./utils/config";
 
 const roboto = Roboto({
 	variable: "--font-roboto",
@@ -12,7 +14,7 @@ const roboto = Roboto({
 const exo2 = Exo_2({
 	variable: "--font-exo_2",
 	subsets: ["latin", "cyrillic"],
-	weight: ["400", "500", "600", "700"]
+	weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -28,9 +30,17 @@ export default function RootLayout({
 	return (
 		<html
 			lang="ru"
-			className={cn("h-full", "antialiased", exo2.variable, roboto.variable, "font-sans")}
+			className={cn(
+				"h-full",
+				"antialiased",
+				exo2.variable,
+				roboto.variable,
+				"font-sans"
+			)}
 		>
 			<body className="min-h-full flex flex-col text-surface">
+				<FAQHydrator questions={FAQ} />
+
 				<Header />
 				{children}
 				<Footer />

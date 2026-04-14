@@ -2,7 +2,7 @@ import isMobileDevice from "../hooks/isDeviceType";
 import About from "./components/about";
 import Advantage from "./components/advantage";
 import Courses from "./components/courses";
-import FAQ from "./components/faq";
+import FAQ from "./components/faq/faq";
 import Feedback from "./components/feedback";
 import Hero from "./components/hero";
 import Offers from "./components/offers";

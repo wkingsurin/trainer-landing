@@ -10,7 +10,7 @@ export default function LoadingScreen() {
 
 	useEffect(() => {
 		const scrollTimer = setTimeout(
-			() => (document.body.style.overflow = "auto"),
+			() => (document.body.style.overflowY = "auto"),
 			3000
 		);
 		const timer = setTimeout(

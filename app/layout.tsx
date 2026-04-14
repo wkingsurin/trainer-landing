@@ -41,7 +41,7 @@ export default function RootLayout({
 		>
 			<body className="relative overflow-hidden min-h-full flex flex-col text-surface">
 				<FAQHydrator questions={FAQ} />
-				<ScrollFix />
+				{/* <ScrollFix /> */}
 
 				<Header />
 				{children}

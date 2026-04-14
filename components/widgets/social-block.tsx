@@ -22,7 +22,7 @@ export default function SocialBlock({
 		},
 		{
 			imageName: "telegram",
-			link: '#telegram',
+			link: 'https://t.me/+HF00ZI4ICTlmNmNi',
 			icon: <TelegramIcon className="transition group-hover:fill-surface" size={`${isMobile ? "size-6" : 'size-6'}`} />,
 		},
 	];

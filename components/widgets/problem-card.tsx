@@ -19,7 +19,7 @@ export default function ProblemCard({
 	square,
 	isMobile,
 }: IProps) {
-	const cardStyle = isMobile ? "min-h-[70px]" : "min-h-[150px] font-bold";
+	const cardStyle = isMobile ? "min-h-[150px] font-bold" : "min-h-[150px] font-bold";
 	const numberStyle = isMobile
 		? "text-[36px] text-accent"
 		: "text-[36px] text-accent font-semibold";
@@ -60,7 +60,7 @@ export default function ProblemCard({
 	const idIsOdd = (id: string) => Number(id) % 2 !== 0;
 
 	return (
-		<motion.div variants={cardVariants}>
+		<motion.div variants={cardVariants} className="min-h-[150px]">
 			<BaseCard
 				key={card.id}
 				className={`card relative group overflow-hidden gap-[30px] tracking-[2%] font-exo_2 ${

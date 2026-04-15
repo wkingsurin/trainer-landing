@@ -5,6 +5,7 @@ import ProblemCard from "./problem-card";
 import AdvantageCard from "./advantage-card";
 import SolutionCard from "./solution-card";
 import { useUIStore } from "@/lib/store/ui.store";
+import CardsBlockMotion from "./cards-block-motion";
 
 interface IProps {
 	cards: {
@@ -26,54 +27,82 @@ export default function CardsBlock({
 	className,
 	type,
 }: IProps) {
-	const isLoading = useUIStore((s) => s.isLoading);
-
-	const blockStyle = isMobile
-		? "flex flex-col gap-[30px]"
-		: type === "solution"
-		? "grid grid-cols-2 gap-5"
-		: "flex flex-row gap-5 z-1200";
-
-	const variants = {
-		hidden: { opacity: 0 },
-		visible: {
-			opacity: 1,
-			transition: {
-				staggerChildren: 0.5,
-				delayChildren: 0.3,
-			},
-		},
-	};
-
 	const getCards = () => {
 		switch (type) {
 			case "advantage": {
-				return cards.map((card) => {
-					return <AdvantageCard key={card.id} card={card} showWorth isMobile={isMobile} />;
-				});
+				return (
+					<CardsBlockMotion
+						className={className}
+						type={type}
+						isMobile={isMobile}
+					>
+						{cards.map((card) => {
+							return (
+								<AdvantageCard
+									key={card.id}
+									card={card}
+									showWorth
+									isMobile={isMobile}
+								/>
+							);
+						})}
+					</CardsBlockMotion>
+				);
 			}
 			case "problems": {
-				return cards.map((card) => {
-					return <ProblemCard key={card.id} card={card} showId />;
-				});
+				return (
+					<CardsBlockMotion
+						className={className}
+						type={type}
+						isMobile={isMobile}
+					>
+						{cards.map((card) => {
+							return (
+								<ProblemCard
+									key={card.id}
+									card={card}
+									showId
+									isMobile={isMobile}
+								/>
+							);
+						})}
+					</CardsBlockMotion>
+				);
 			}
 			case "solution": {
-				return cards.map((card) => {
-					return <SolutionCard key={card.id} card={card} showId />;
-				});
+				return (
+					<CardsBlockMotion
+						className={className}
+						type={type}
+						isMobile={isMobile}
+					>
+						{cards.map((card) => {
+							return (
+								<SolutionCard
+									key={card.id}
+									card={card}
+									showId
+									isMobile={isMobile}
+								/>
+							);
+						})}
+					</CardsBlockMotion>
+				);
 			}
 		}
 	};
 
 	return (
-		<motion.div
-			initial="hidden"
-			variants={variants}
-			animate={!isLoading ? "visible" : "hidden"}
-			viewport={{ once: true, amount: 0.2 }}
-			className={`w-full ${blockStyle} ${className}`}
-		>
-			{getCards()}
-		</motion.div>
+		// <CardsBlockMotion type="">{getCards()}</CardsBlockMotion>
+		// <motion.div
+		// 	initial="hidden"
+		// 	variants={variants}
+		// 	animate={!isLoading ? "visible" : "hidden"}
+		// 	viewport={{ once: true, amount: 0.2 }}
+		// 	className={`w-full ${blockStyle} ${className}`}
+		// >
+		// 	{getCards()}
+		// </motion.div>
+		<>{getCards()}</>
 	);
 }

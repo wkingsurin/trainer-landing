@@ -19,14 +19,14 @@ export default function AdvantageCard({ card, showWorth, isMobile }: IProps) {
 		? "min-h-[150px]"
 		: "flex-1 min-h-[150px] font-bold";
 
-	const stepDuration = 0.8;
+	const stepDuration = 0.6;
 	const delay = Number(card.id) * stepDuration;
 	const delayNext = delay + 0.4;
 
 	const cardVariants: Variants = {
 		hidden: {
 			opacity: 0,
-			y: isMobile ? 0 : -50,
+			y: isMobile ? 0 : -30,
 			x: isMobile ? -50 : -50,
 			scale: 1.05,
 		},

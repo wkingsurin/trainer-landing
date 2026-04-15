@@ -19,12 +19,16 @@ export default function AdvantageCard({ card, showWorth, isMobile }: IProps) {
 		? "min-h-[150px]"
 		: "flex-1 min-h-[150px] font-bold";
 
+	const stepDuration = 0.8;
+	const delay = Number(card.id) * stepDuration;
+	const delayNext = delay + 0.4;
+
 	const cardVariants: Variants = {
 		hidden: {
 			opacity: 0,
-			y: isMobile ? 0 : 30,
-			x: isMobile ? -50 : 0,
-			scale: 0.95,
+			y: isMobile ? 0 : -50,
+			x: isMobile ? -50 : -50,
+			scale: 1.05,
 		},
 		visible: {
 			opacity: 1,
@@ -32,9 +36,15 @@ export default function AdvantageCard({ card, showWorth, isMobile }: IProps) {
 			x: 0,
 			scale: 1,
 			transition: {
-				type: "spring",
-				stiffness: 300,
-				damping: 15,
+				x: { delay, type: "spring", stiffness: 100, damping: 20 },
+				y: { delay: delayNext, type: "spring", stiffness: 80, damping: 15 },
+				scale: {
+					delay: delayNext,
+					type: "spring",
+					stiffness: 80,
+					damping: 15,
+				},
+				opacity: { delay, duration: 0.3 },
 			},
 		},
 	};

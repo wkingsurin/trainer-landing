@@ -39,7 +39,7 @@ export default function CardsBlock({
 		visible: {
 			opacity: 1,
 			transition: {
-				staggerChildren: 0.3,
+				staggerChildren: 0.5,
 				delayChildren: 0.3,
 			},
 		},
@@ -49,7 +49,7 @@ export default function CardsBlock({
 		switch (type) {
 			case "advantage": {
 				return cards.map((card) => {
-					return <AdvantageCard key={card.id} card={card} showWorth isMobile />;
+					return <AdvantageCard key={card.id} card={card} showWorth isMobile={isMobile} />;
 				});
 			}
 			case "problems": {
@@ -67,9 +67,9 @@ export default function CardsBlock({
 
 	return (
 		<motion.div
-			variants={variants}
 			initial="hidden"
-			animate={!isLoading ? "visible" : 'hidden'}
+			variants={variants}
+			animate={!isLoading ? "visible" : "hidden"}
 			viewport={{ once: true, amount: 0.2 }}
 			className={`w-full ${blockStyle} ${className}`}
 		>

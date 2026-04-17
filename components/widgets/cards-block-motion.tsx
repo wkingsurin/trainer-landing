@@ -7,16 +7,20 @@ interface IProps {
 	className?: string;
 	isMobile?: boolean;
 	type: Type;
+	visited: boolean;
 	children: React.ReactNode;
+	isHero?: boolean;
 }
 
 export default function CardsBlockMotion({
 	className,
 	isMobile,
 	type,
+	visited,
 	children,
+	isHero,
 }: IProps) {
-	const isLoading = useUIStore((s) => s.isLoading);
+	const appReady = useUIStore((s) => s.appReady);
 
 	const blockStyle = isMobile
 		? "flex flex-col gap-[30px]"
@@ -35,17 +39,18 @@ export default function CardsBlockMotion({
 		},
 	};
 
-	const animate = (type: Type) =>
-		type === "advantage"
-			? { animate: !isLoading ? "visible" : "hidden" }
-			: { whileInView: !isLoading ? 'visible' : 'hidden' };
+	if (visited) {
+		return (
+			<div className={`w-full ${blockStyle} ${className}`}>{children}</div>
+		);
+	}
 
 	return (
 		<motion.div
-			initial="hidden"
 			variants={variants}
-			{...animate(type)}
-			// animate={!isLoading ? "visible" : "hidden"}
+			initial={"hidden"}
+			animate={isHero && appReady && "visible"}
+			whileInView={!visited && appReady ? "visible" : "hidden"}
 			viewport={{ once: true, amount: 0.2 }}
 			className={`w-full ${blockStyle} ${className}`}
 		>

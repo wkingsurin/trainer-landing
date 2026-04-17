@@ -1,11 +1,10 @@
 "use client";
-import { motion } from "framer-motion";
 
 import ProblemCard from "./problem-card";
 import AdvantageCard from "./advantage-card";
 import SolutionCard from "./solution-card";
-import { useUIStore } from "@/lib/store/ui.store";
 import CardsBlockMotion from "./cards-block-motion";
+import { useVisit } from "../contexts/visit-context";
 
 interface IProps {
 	cards: {
@@ -27,6 +26,8 @@ export default function CardsBlock({
 	className,
 	type,
 }: IProps) {
+	const { visit } = useVisit();
+
 	const getCards = () => {
 		switch (type) {
 			case "advantage": {
@@ -35,6 +36,8 @@ export default function CardsBlock({
 						className={className}
 						type={type}
 						isMobile={isMobile}
+						visited={visit}
+						isHero
 					>
 						{cards.map((card) => {
 							return (
@@ -55,6 +58,7 @@ export default function CardsBlock({
 						className={className}
 						type={type}
 						isMobile={isMobile}
+						visited={visit}
 					>
 						{cards.map((card) => {
 							return (
@@ -75,6 +79,7 @@ export default function CardsBlock({
 						className={className}
 						type={type}
 						isMobile={isMobile}
+						visited={visit}
 					>
 						{cards.map((card) => {
 							return (
@@ -92,17 +97,5 @@ export default function CardsBlock({
 		}
 	};
 
-	return (
-		// <CardsBlockMotion type="">{getCards()}</CardsBlockMotion>
-		// <motion.div
-		// 	initial="hidden"
-		// 	variants={variants}
-		// 	animate={!isLoading ? "visible" : "hidden"}
-		// 	viewport={{ once: true, amount: 0.2 }}
-		// 	className={`w-full ${blockStyle} ${className}`}
-		// >
-		// 	{getCards()}
-		// </motion.div>
-		<>{getCards()}</>
-	);
+	return <>{getCards()}</>;
 }

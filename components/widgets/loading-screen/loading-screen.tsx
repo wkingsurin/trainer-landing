@@ -4,31 +4,31 @@ import { AnimatePresence } from "framer-motion";
 import Screen from "./screen";
 import { useUIStore } from "@/lib/store/ui.store";
 import { useEffect } from "react";
+import { setCookie } from "@/app/cookie-action";
 
 export default function LoadingScreen() {
-	const isLoading = useUIStore((s) => s.isLoading);
+	const setAppReady = useUIStore((s) => s.setAppReady);
 
 	useEffect(() => {
-		const scrollTimer = setTimeout(
-			() => (document.body.style.overflowY = "auto"),
-			3000
-		);
-		const timer = setTimeout(
-			() => {
-				useUIStore.getState().updateIsLoading(false);
-			},
+		document.body.style.overflowY = "hidden";
 
-			3500
-		);
+		const scrollTimer = setTimeout(() => {
+			document.body.style.overflowY = "auto";
+			setAppReady(true);
+		}, 3000);
+		const timer = setTimeout(async () => {
+			setCookie();
+		}, 3500);
+
 		return () => {
 			clearTimeout(timer);
 			clearTimeout(scrollTimer);
 		};
-	}, []);
+	}, [setAppReady]);
 
 	return (
 		<AnimatePresence mode="wait">
-			{isLoading && <Screen key="loader" />}
+			<Screen key="loader" />
 		</AnimatePresence>
 	);
 }

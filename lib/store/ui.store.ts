@@ -1,13 +1,15 @@
 import { create } from "zustand";
 
-interface UIState {
-	isLoading: boolean;
+export interface UIProps {
+	appReady: boolean;
+}
 
-	updateIsLoading: (status: boolean) => void;
+export interface UIState extends UIProps {
+	setAppReady: (flag: boolean) => void;
 }
 
 export const useUIStore = create<UIState>()((set) => ({
-	isLoading: true,
+	appReady: false,
 
-	updateIsLoading: (status) => set({ isLoading: status }),
+	setAppReady: (flag) => set({ appReady: flag }),
 }));

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import image from "@/public/hero.jpg";
 
 interface IProps {
 	isMobile?: boolean;
@@ -11,7 +12,9 @@ export default function BackgroundImage({ isMobile }: IProps) {
 	const layerStyle = isMobile ? "top-[80px]" : "top-[100px]";
 
 	return (
-		<div className={`absolute right-[0px] z-999 max-w-[720px] w-full h-full ${layerStyle}`}>
+		<div
+			className={`absolute right-[0px] z-999 max-w-[720px] w-full h-full ${layerStyle}`}
+		>
 			<div className="relative w-full h-full overflow-hidden">
 				{!isMobile && (
 					<>
@@ -21,7 +24,7 @@ export default function BackgroundImage({ isMobile }: IProps) {
 				)}
 				<div className="absolute z-1200 bottom-0 w-full h-100 bg-linear-to-b from-background/0 to-background"></div>
 				<Image
-					src="/hero.jpg"
+					src={image}
 					alt="background"
 					fill
 					priority

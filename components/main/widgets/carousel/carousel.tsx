@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 import { useEffect, useRef, useState } from "react";
@@ -12,6 +13,7 @@ import SlideCard from "../slide-card";
 import Tag from "../../../shared/tag";
 import { Button } from "./button";
 import type { Swiper as SwiperType } from "swiper";
+import { useVisit } from "@/components/contexts/visit-context";
 
 interface IProps {
 	isMobile: boolean;
@@ -25,10 +27,22 @@ interface IProps {
 
 export default function Carousel({ isMobile, slides }: IProps) {
 	const [active, setActive] = useState<number>(() => (isMobile ? 1 : 4));
+	const { visit } = useVisit();
 
 	const prevRef = useRef<HTMLDivElement | null>(null);
 	const nextRef = useRef<HTMLDivElement | null>(null);
 	const swiperRef = useRef<SwiperType | null>(null);
+
+	const variants = {
+		hidden: { opacity: 0 },
+		visible: {
+			opacity: 1,
+			transition: {
+				staggerChildren: 0.5,
+				delayChildren: 0.3,
+			},
+		},
+	};
 
 	useEffect(() => {
 		const swiper = swiperRef.current;
@@ -47,7 +61,13 @@ export default function Carousel({ isMobile, slides }: IProps) {
 	}, []);
 
 	return (
-		<div className={`container w-full relative scrollbar-hide`}>
+		<motion.div
+			initial={visit ? false : "hidden"}
+			whileInView={"visible"}
+			viewport={{ once: true, amount: 0.2 }}
+			variants={variants}
+			className={`container w-full relative scrollbar-hide`}
+		>
 			<Swiper
 				modules={[Pagination, Navigation]}
 				navigation={{
@@ -69,9 +89,12 @@ export default function Carousel({ isMobile, slides }: IProps) {
 				{slides.map((slide, index) => (
 					<SwiperSlide
 						key={index}
-						className="flex [&:last-child]:m-0 basis-[85%] sm:basis-[calc(50%-9px)] md:basis-[calc(33.333%-12px)] xl:basis-[calc(25%-18px)]"
+						className={`relative z-${
+							1300 - index
+						} flex [&:last-child]:m-0 basis-[85%] sm:basis-[calc(50%-9px)] md:basis-[calc(33.333%-12px)] xl:basis-[calc(25%-18px)]`}
 					>
 						<SlideCard
+							index={index}
 							imageSrc={`/frame-${index + 1}.jpg`}
 							imageAlt="Дэушка"
 							isMobile={isMobile}
@@ -92,6 +115,6 @@ export default function Carousel({ isMobile, slides }: IProps) {
 					<Button direction="right" ref={nextRef} />
 				</>
 			)}
-		</div>
+		</motion.div>
 	);
 }

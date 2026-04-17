@@ -1,8 +1,10 @@
 import Card from "@/components/shared/card";
 import DescriptionBlock from "@/components/widgets/description-block";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 
 interface IProps {
+	index: number;
 	imageSrc: string;
 	imageAlt: string;
 	className?: string;
@@ -18,6 +20,7 @@ interface IProps {
 }
 
 export default function SlideCard({
+	index,
 	className,
 	imageSrc,
 	imageAlt,
@@ -39,41 +42,75 @@ export default function SlideCard({
 		? `${animateStyle} translate-y-[305px] group-hover:translate-y-0`
 		: "";
 
+	const stepDuration = 0.7;
+	const delay = Number(index) * stepDuration;
+	const delayNext = delay + 0.4;
+
+	const cardVariants: Variants = {
+		hidden: {
+			opacity: 0,
+			x: isMobile ? -50 : -50,
+			scale: 0.97,
+		},
+		visible: {
+			opacity: 1,
+			x: 0,
+			scale: 1,
+			transition: {
+				x: { delay, type: "spring", stiffness: 100, damping: 20 },
+				scale: {
+					delay: delayNext,
+					type: "spring",
+					stiffness: 80,
+					damping: 15,
+				},
+				opacity: { delay, duration: 0.3 },
+			},
+		},
+	};
+
 	return (
-		<Card
-			className={`group advanced-card p-0! relative min-h-[500px] overflow-hidden ${mobileStyle} ${desktopStyle} ${className}`}
+		<motion.div
+			variants={cardVariants}
+			style={{ position: "relative", zIndex: `${1200 - index}` }}
 		>
-			<Image
-				className={`absolute w-full h-full rounded-[20px] object-cover brightness-90 ${animationStyle}`}
-				fill
-				priority
-				src={imageSrc}
-				alt={imageAlt}
-			/>
-			<div
-				className={`absolute z-1200 w-full h-full flex flex-col justify-between items-end p-3 text-[14px] justify-end`}
+			<Card
+				className={`group advanced-card p-0! relative min-h-[500px] overflow-hidden ${mobileStyle} ${desktopStyle} ${className}`}
 			>
-				<div className="flex flex-col items-end gap-3 w-full">
-					<DescriptionBlock className={`leading-[19px] ${descriptionStyle}`}>
-						<span
-							className={`text-base font-bold leading-[19px] ${
-								premium && "text-accent"
-							}`}
-						>
-							{data.title}
-						</span>
-						{typeof data.description === "object" && (
-							<div className="flex flex-col w-full gap-[6px]">
-								{data.description.map((p) => (
-									<p key={p.text}>{p.text}</p>
-								))}
-							</div>
-						)}
-						{typeof data.description === "string" && <p>{data.description}</p>}
-					</DescriptionBlock>
+				<Image
+					className={`absolute w-full h-full rounded-[20px] object-cover brightness-90 ${animationStyle}`}
+					fill
+					priority
+					src={imageSrc}
+					alt={imageAlt}
+				/>
+				<div
+					className={`absolute z-1200 w-full h-full flex flex-col justify-between items-end p-3 text-[14px] justify-end`}
+				>
+					<div className="flex flex-col items-end gap-3 w-full">
+						<DescriptionBlock className={`leading-[19px] ${descriptionStyle}`}>
+							<span
+								className={`text-base font-bold leading-[19px] ${
+									premium && "text-accent"
+								}`}
+							>
+								{data.title}
+							</span>
+							{typeof data.description === "object" && (
+								<div className="flex flex-col w-full gap-[6px]">
+									{data.description.map((p) => (
+										<p key={p.text}>{p.text}</p>
+									))}
+								</div>
+							)}
+							{typeof data.description === "string" && (
+								<p>{data.description}</p>
+							)}
+						</DescriptionBlock>
+					</div>
 				</div>
-			</div>
-			{children}
-		</Card>
+				{children}
+			</Card>
+		</motion.div>
 	);
 }

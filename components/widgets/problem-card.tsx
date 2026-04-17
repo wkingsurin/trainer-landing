@@ -60,7 +60,7 @@ export default function ProblemCard({
 	const idIsOdd = (id: string) => Number(id) % 2 !== 0;
 
 	return (
-		<motion.div variants={cardVariants} className="min-h-[150px]">
+		<motion.div variants={cardVariants} className="min-h-[150px] md:w-1/4">
 			<BaseCard
 				key={card.id}
 				className={`card relative group overflow-hidden gap-[30px] tracking-[2%] font-exo_2 ${

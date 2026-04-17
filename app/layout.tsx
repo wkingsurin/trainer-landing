@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
 import { Exo_2, Roboto } from "next/font/google";
 import "./globals.css";
+
 import { cn } from "@/lib/utils";
+import { FAQ } from "./utils/config";
+
+import { cookies } from "next/headers";
+
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+
 import FAQHydrator from "@/components/faq-hydrator";
-import { FAQ } from "./utils/config";
+
 import ScrollFix from "./utils/scroll-fix";
+import LoadingScreen from "@/components/widgets/loading-screen/loading-screen";
+import VisitProvider from "@/components/contexts/visit-context";
 
 const roboto = Roboto({
 	variable: "--font-roboto",
@@ -23,11 +31,14 @@ export const metadata: Metadata = {
 	description: "Landing page for fitness trainer",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const cookieStore = await cookies();
+	const hasVisited = Boolean(cookieStore.get("has_visited")?.value);
+
 	return (
 		<html
 			lang="ru"
@@ -39,13 +50,16 @@ export default function RootLayout({
 				"font-sans"
 			)}
 		>
-			<body className="relative overflow-hidden min-h-full flex flex-col text-surface">
+			<body className={`relative min-h-full flex flex-col text-surface`}>
 				<FAQHydrator questions={FAQ} />
 				{/* <ScrollFix /> */}
 
-				<Header />
-				{children}
-				<Footer />
+				<VisitProvider initialValue={hasVisited}>
+					{hasVisited ? null : <LoadingScreen />}
+					<Header />
+					{children}
+					<Footer />
+				</VisitProvider>
 			</body>
 		</html>
 	);

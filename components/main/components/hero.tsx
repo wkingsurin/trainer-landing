@@ -17,8 +17,12 @@ export default async function Hero({ isMobile }: IProps) {
 	const textBlockSize = isMobile
 		? "max-w-[1280px]"
 		: "max-w-[480px] left-[120px]";
-	const titleStyle = isMobile ? "text-[32px] leading-[38px]!" : "text-[48px] leading-[58px]!";
-	const subtitleStyle = isMobile ? "text-base leading-[23px]" : "text-[20px] leading-[23px]";
+	const titleStyle = isMobile
+		? "text-[32px] leading-[38px]!"
+		: "text-[48px] leading-[58px]!";
+	const subtitleStyle = isMobile
+		? "text-base leading-[23px]"
+		: "text-[20px] leading-[23px]";
 	const contentGap = isMobile ? "gap-3" : "gap-5";
 	const buttonStyle = isMobile
 		? "min-h-[60px]"

@@ -1,5 +1,4 @@
 import isMobileDevice from "../hooks/isDeviceType";
-import LoadingScreen from "../widgets/loading-screen/loading-screen";
 import About from "./components/about";
 import Advantage from "./components/advantage";
 import Courses from "./components/courses";
@@ -22,7 +21,6 @@ export default async function Main({ children }: IProps) {
 
 	return (
 		<>
-			<LoadingScreen />
 			<main
 				className={`${style} [&>*:first-child]:py-0! [&>*:last-child]:pb-0`}
 			>

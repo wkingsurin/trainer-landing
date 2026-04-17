@@ -3,7 +3,6 @@ import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import BaseCard from "./base-card";
 import ContentTitle from "../shared/content-title";
-import { exit } from "process";
 
 interface IProps {
 	card: {

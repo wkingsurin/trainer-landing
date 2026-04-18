@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import image from "@/public/hero.jpg";
 
@@ -18,17 +20,21 @@ export default function BackgroundImage({ isMobile }: IProps) {
 			<div className="relative w-full h-full overflow-hidden">
 				{!isMobile && (
 					<>
-						<div className="absolute z-1200 w-1/3 h-full bg-linear-to-r from-background to-background/0"></div>
-						<div className="absolute z-1200 right-0 w-1/3 h-full bg-linear-to-r from-background/0 to-background"></div>
+						<div className="absolute inset-y-0 left-0 z-[1200] w-1/3 bg-gradient-to-l from-transparent via-background/60 to-background" />
+						<div className="absolute inset-y-0 right-0 z-[1200] w-1/3 bg-gradient-to-l from-background via-background/60 to-transparent" />
 					</>
 				)}
-				<div className="absolute z-1200 bottom-0 w-full h-100 bg-linear-to-b from-background/0 to-background"></div>
+
+				<div className="absolute bottom-0 left-0 z-[1200] w-full h-80 bg-gradient-to-t from-background via-background/80 to-transparent">
+					<div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none bg-[url('https://vercel.app')]"></div>
+				</div>
+
 				<Image
 					src={image}
 					alt="background"
-					fill
-					priority
-					className={imageStyle}
+					preload
+					className={`transition duration-500 ease-in-out opacity-0 ${imageStyle}`}
+					onLoadingComplete={(img) => img.classList.remove("opacity-0")}
 				/>
 			</div>
 		</div>

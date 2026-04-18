@@ -27,16 +27,16 @@ export default function ProblemCard({
 		? "object-cover object-[center_-30px]"
 		: "object-cover object-top";
 
-	const stepDuration = 0.6;
+	const stepDuration = 0.4;
 	const delay = Number(card.id) * stepDuration;
 	const delayNext = delay + 0.4;
 
 	const cardVariants: Variants = {
 		hidden: {
 			opacity: 0,
-			y: isMobile ? 0 : -30,
-			x: isMobile ? -50 : -50,
-			scale: 1.05,
+			y: isMobile ? 0 : -20,
+			x: isMobile ? -20 : 0,
+			scale: 0.85,
 		},
 		visible: {
 			opacity: 1,

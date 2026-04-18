@@ -26,9 +26,9 @@ export default function AdvantageCard({ card, showWorth, isMobile }: IProps) {
 	const cardVariants: Variants = {
 		hidden: {
 			opacity: 0,
-			y: isMobile ? 0 : -30,
-			x: isMobile ? -50 : -50,
-			scale: 1.05,
+			y: isMobile ? 0 : -20,
+			x: isMobile ? -20 : 0,
+			scale: 0.85,
 		},
 		visible: {
 			opacity: 1,

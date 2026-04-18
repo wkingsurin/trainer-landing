@@ -12,7 +12,6 @@ import Footer from "@/components/footer";
 
 import FAQHydrator from "@/components/faq-hydrator";
 
-import ScrollFix from "./utils/scroll-fix";
 import LoadingScreen from "@/components/widgets/loading-screen/loading-screen";
 import VisitProvider from "@/components/contexts/visit-context";
 
@@ -50,9 +49,12 @@ export default async function RootLayout({
 				"font-sans"
 			)}
 		>
-			<body className={`relative min-h-full flex flex-col text-surface`}>
+			<body
+				className={`relative min-h-full flex flex-col text-surface ${
+					!hasVisited && "overflow-hidden"
+				}`}
+			>
 				<FAQHydrator questions={FAQ} />
-				{/* <ScrollFix /> */}
 
 				<VisitProvider initialValue={hasVisited}>
 					{hasVisited ? null : <LoadingScreen />}

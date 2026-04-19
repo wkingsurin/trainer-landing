@@ -86,8 +86,57 @@ export const OFFERS_DATA = [
 		],
 	},
 ];
-
 export const OFFERS_TITLE = {
 	subtitle: "предложение",
 	title: "Начни с удобного формата — результат будет в любом",
-}
+};
+
+export const COURSES_DATA = [
+	{
+		title: "Что получаешь:",
+		tag: `“Быстрый старт”`,
+		price: "4500 руб/мес",
+		imageSrc: "/1.jpg",
+		imageAlt: "Алина Самойлова",
+		description: [
+			{ text: "Разовая консультация" },
+			{ text: "Программа тренировки" },
+			{ text: "Техника выполнения упражнений" },
+			{ text: "План питания" },
+		],
+	},
+	{
+		title: "Что получаешь:",
+		tag: `“Продвинутый уровень”`,
+		price: "9500 руб/мес",
+		imageSrc: "/3.jpg",
+		imageAlt: "Алина Самойлова",
+		description: [
+			{ text: "Программа тренировки" },
+			{ text: "Техника выполнения упражнений" },
+			{ text: "План питания" },
+			{ text: "Закрытый чат со мной" },
+			{ text: "Курс по биохимии" },
+		],
+	},
+];
+export const COURSES_TITLE = {
+	subtitle: "курсы",
+	title: "Готовые программы",
+};
+
+export const ABOUT_DATA = {
+	title: "Алина Самойлова",
+	description: "“Я не просто даю упражнения — я веду тебя до результата”",
+	imageSrc: "/1.jpg",
+	imageAlt: "Алина Самойлова",
+};
+export const ABOUT_DIGITS_DATA = [
+	{ id: "1", worth: "100+", description: "клиентов получили результат" },
+	{ id: "2", worth: "5 лет", description: "практики" },
+	{ id: "3", worth: "90%", description: "успешных кейсов" },
+];
+export const ABOUT_TITLE = {
+	subtitle: "о тренере",
+	title: "Твой результат — моя личная ответственность",
+};

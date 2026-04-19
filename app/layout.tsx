@@ -3,14 +3,11 @@ import { Exo_2, Roboto } from "next/font/google";
 import "./globals.css";
 
 import { cn } from "@/lib/utils";
-import { FAQ } from "./utils/config";
 
 import { cookies } from "next/headers";
 
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-
-import FAQHydrator from "@/components/faq-hydrator";
 
 import LoadingScreen from "@/components/widgets/loading-screen/loading-screen";
 import VisitProvider from "@/components/contexts/visit-context";
@@ -54,8 +51,6 @@ export default async function RootLayout({
 					!hasVisited && "overflow-hidden"
 				}`}
 			>
-				<FAQHydrator questions={FAQ} />
-
 				<VisitProvider initialValue={hasVisited}>
 					{hasVisited ? null : <LoadingScreen />}
 					<Header />

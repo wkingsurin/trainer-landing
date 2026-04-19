@@ -1,24 +1,16 @@
-"use client";
-
+import { mapFAQData } from "@/app/mappers/faq-mapper";
 import Section from "../../../shared/section";
 import SectionContent from "../../../shared/section-content";
 import TitleBlock from "../../../widgets/title-block";
-import { useFAQUIStore } from "@/lib/store/faq.store";
-import Question from "./question";
-import { useState } from "react";
+import FAQClient from "./faq-client";
+import { FAQ_DATA } from "@/app/utils/config";
 
 interface IProps {
 	isMobile: boolean;
 }
 
 export default function FAQ({ isMobile }: IProps) {
-	const [activeId, setActiveId] = useState<string | null>(null);
-	const questionIds = useFAQUIStore((s) => s.questionsById);
-	const questions = Object.values(questionIds);
-
-	const onClick = (id: string) => {
-		setActiveId((prevId) => (prevId === id ? null : id));
-	};
+	const data = Object.values(mapFAQData(FAQ_DATA));
 
 	return (
 		<Section
@@ -36,17 +28,7 @@ export default function FAQ({ isMobile }: IProps) {
 				className="max-w-[480px]"
 			/>
 			<SectionContent className="max-w-[720px] w-full">
-				<ul className="flex flex-col list-separator">
-					{questions.map((question) => (
-						<Question
-							key={question.id}
-							data={question}
-							onClick={onClick}
-							active={question.id === activeId}
-							isMobile={isMobile}
-						/>
-					))}
-				</ul>
+				<FAQClient data={data} isMobile={isMobile} />
 			</SectionContent>
 		</Section>
 	);

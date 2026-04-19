@@ -1,4 +1,4 @@
-export const FAQ = [
+export const FAQ_DATA = [
 	{
 		id: "1",
 		text: "Я никогда раньше не занималась. | Мне не будет стыдно в зале?",

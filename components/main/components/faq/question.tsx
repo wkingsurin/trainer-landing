@@ -1,11 +1,11 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { IQuestion } from "@/lib/store/faq.store";
+import { IQuestion } from "@/app/types/faq.types";
 import { Plus } from "lucide-react";
 
 interface IProps {
 	data: IQuestion;
 	active: boolean;
-  isMobile: boolean;
+	isMobile: boolean;
 	onClick: (id: string) => void;
 }
 
@@ -16,12 +16,18 @@ export default function Question({ data, active, isMobile, onClick }: IProps) {
 		<li
 			key={data.id}
 			className="group flex flex-col w-full min-h-[60px] overflow-hidden"
-			onClick={() => onClick(data.id)}
 		>
 			<div
-				className={`flex justify-between items-center w-full text-[18px] cursor-pointer p-[15px] gap-[10px] trainsiton duration-[0.3s] hover:text-accent-900 ${activeStyle}`}
+				className={`flex justify-between items-center w-full text-[18px] cursor-pointer gap-[10px] trainsiton duration-[0.3s] hover:text-accent-900 ${activeStyle}`}
+				onClick={() => onClick(data.id)}
 			>
-				<div className="flex flex-col gap-1">{isMobile ? data.text.split('|').map((string) => <p key={string}>{string.trim()}</p>) : data.text.split('|').join('')}</div>
+				<div className="flex flex-col gap-1 p-[15px]">
+					{isMobile
+						? data.text
+								.split("|")
+								.map((string) => <p key={string}>{string.trim()}</p>)
+						: data.text.split("|").join("")}
+				</div>
 				<motion.div
 					animate={{ rotate: active ? 45 : 0 }}
 					transition={{ duration: 0.2 }}

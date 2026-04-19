@@ -28,7 +28,9 @@ export default function OfferCard({
 	children,
 	data,
 }: IProps) {
-	const style = isMobile ? "flex-1" : "w-1/4";
+	const style = isMobile ? "flex-1" : "w-full";
+
+	const scaleCard = isMobile ? '' : "hover:scale-103"
 
 	const animateStyle = "transition transform-gpu duration-[0.5s]";
 	const animationStyle = isMobile
@@ -37,7 +39,7 @@ export default function OfferCard({
 
 	return (
 		<Card
-			className={`group advanced-card p-0! relative min-h-[500px] overflow-hidden ${style} ${className}`}
+			className={`group advanced-card p-0! relative min-h-[500px] overflow-hidden ${animateStyle} ${scaleCard} ${style} ${className}`}
 		>
 			<Image
 				className={`absolute w-full h-full rounded-[20px] object-cover brightness-90 ${animationStyle}`}

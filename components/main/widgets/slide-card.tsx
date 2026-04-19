@@ -1,7 +1,11 @@
+"use client";
+
 import Card from "@/components/shared/card";
 import DescriptionBlock from "@/components/widgets/description-block";
-import { motion, Variants } from "framer-motion";
+import { AnimatePresence, motion, Variants } from "framer-motion";
 import Image from "next/image";
+import SlideCardSkeleton from "./slide-card-skeleton";
+import { useState } from "react";
 
 interface IProps {
 	index: number;
@@ -29,6 +33,8 @@ export default function SlideCard({
 	children,
 	data,
 }: IProps) {
+	const [isLoaded, setIsLoaded] = useState<boolean>(false);
+
 	const animateStyle = "transition transform-gpu duration-[0.7s]";
 
 	const animationStyle = isMobile
@@ -75,14 +81,31 @@ export default function SlideCard({
 			style={{ position: "relative", zIndex: `${1200 - index}` }}
 		>
 			<Card
-				className={`group advanced-card p-0! relative min-h-[500px] overflow-hidden ${mobileStyle} ${desktopStyle} ${className}`}
+				className={`group advanced-card p-0! relative min-h-[500px] overflow-hidden items-center justify-center ${mobileStyle} ${desktopStyle} ${className}`}
 			>
+				<AnimatePresence>
+					{!isLoaded && (
+						<motion.div
+							initial={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							transition={{ duration: 0.5 }}
+							className="absolute z-[1200] w-[500px] h-[600px]"
+						>
+							<SlideCardSkeleton />
+						</motion.div>
+					)}
+				</AnimatePresence>
 				<Image
-					className={`absolute w-full h-full rounded-[20px] object-cover brightness-90 ${animationStyle}`}
+					className={`absolute w-full h-full rounded-[20px] aspect-[3/5] opacity-0 transition object-cover brightness-90 ${animationStyle}`}
 					fill
 					priority
 					src={imageSrc}
 					alt={imageAlt}
+					sizes="(max-width: 768px) 100vw, 25vw"
+					onLoad={(img) => {
+						img.currentTarget.classList.replace("opacity-0", 'opacity-100');
+						setIsLoaded(true);
+					}}
 				/>
 				<div
 					className={`absolute z-1200 w-full h-full flex flex-col justify-between items-end p-3 text-[14px] justify-end`}

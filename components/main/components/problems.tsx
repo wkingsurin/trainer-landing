@@ -2,17 +2,14 @@ import Section from "../../shared/section";
 import CardsBlock from "../../widgets/cards-block";
 import TitleBlock from "../../widgets/title-block";
 
+import { PROBLEMS_DATA, PROBLEMS_TITLE } from "@/app/utils/config";
+
 interface IProps {
 	isMobile: boolean;
 }
 
 export default function Problem({ isMobile }: IProps) {
-	const cards = [
-		{ id: "1", description: "Тренируешься, но вес не уходит" },
-		{ id: "2", description: "Не понимаешь, что и как делать" },
-		{ id: "3", description: "Срываешься с диеты через 3 дня" },
-		{ id: "4", description: "Нет мотивации и контроля" },
-	];
+	const data = Object.values(PROBLEMS_DATA);
 
 	const sectionStyle = isMobile
 		? ""
@@ -28,11 +25,11 @@ export default function Problem({ isMobile }: IProps) {
 			px
 		>
 			<TitleBlock
-				subtitle="проблема"
-				title="Почему у тебя до сих пор нет результата?"
+				subtitle={PROBLEMS_TITLE.subtitle}
+				title={PROBLEMS_TITLE.title}
 				isMobile={isMobile}
 			/>
-			<CardsBlock cards={cards} showId type="problems" isMobile={isMobile} />
+			<CardsBlock cards={data} showId type="problems" isMobile={isMobile} />
 		</Section>
 	);
 }

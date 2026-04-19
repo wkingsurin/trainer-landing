@@ -3,7 +3,7 @@ import Section from "../../../shared/section";
 import SectionContent from "../../../shared/section-content";
 import TitleBlock from "../../../widgets/title-block";
 import FAQClient from "./faq-client";
-import { FAQ_DATA } from "@/app/utils/config";
+import { FAQ_DATA, FAQ_TITLE } from "@/app/utils/config";
 
 interface IProps {
 	isMobile: boolean;
@@ -22,8 +22,8 @@ export default function FAQ({ isMobile }: IProps) {
 			centered
 		>
 			<TitleBlock
-				subtitle="вопросы"
-				title="Ответы на вопросы, которые тебя останавливают"
+				subtitle={FAQ_TITLE.subtitle}
+				title={FAQ_TITLE.title}
 				isMobile={isMobile}
 				className="max-w-[480px]"
 			/>

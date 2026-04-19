@@ -4,59 +4,28 @@ import SectionContent from "../../shared/section-content";
 import CardsBlock from "../../widgets/cards-block";
 import TitleBlock from "../../widgets/title-block";
 
+import { SOLUTION_DATA, SOLUTION_TITLE } from "@/app/utils/config";
+
 interface IProps {
 	isMobile: boolean;
 }
 
 export default function Solution({ isMobile }: IProps) {
-	const cards = [
-		{
-			id: "1",
-			title: "Анализ твоего тела и целей",
-			description: [
-				{ text: "Проводим персональную тренировку" },
-				{ text: "Проводим быстрый курс" },
-				{ text: "Оцениваем твои возможности" },
-			],
-		},
-		{
-			id: "2",
-			title: "Составление персональной программы",
-			description: [
-				{ text: "Проводим персональную тренировку" },
-				{ text: "Проводим быстрый курс" },
-				{ text: "Оцениваем твои возможности" },
-			],
-		},
-		{
-			id: "3",
-			title: "Контроль и корректировка каждую неделю",
-			description: [
-				{ text: "Проводим персональную тренировку" },
-				{ text: "Проводим быстрый курс" },
-				{ text: "Оцениваем твои возможности" },
-			],
-		},
-		{
-			id: "4",
-			title: "Контроль и корректировка каждую неделю",
-			description: [
-				{ text: "Проводим персональную тренировку" },
-				{ text: "Проводим быстрый курс" },
-				{ text: "Оцениваем твои возможности" },
-			],
-		},
-	];
+	const data = Object.values(SOLUTION_DATA);
 
 	return (
 		<Section id="solution" px isMobile={isMobile} container centered>
 			<TitleBlock
-				subtitle="решение"
-				title="Вот как мы доведём тебя до результата"
+				subtitle={SOLUTION_TITLE.subtitle}
+				title={SOLUTION_TITLE.title}
 				isMobile={isMobile}
 			/>
-			<SectionContent className={`items-center w-full ${isMobile ? 'gap-[30px]' : 'gap-[50px]'}`}>
-				<CardsBlock cards={cards} showId type="solution" isMobile={isMobile} />
+			<SectionContent
+				className={`items-center w-full ${
+					isMobile ? "gap-[30px]" : "gap-[50px]"
+				}`}
+			>
+				<CardsBlock cards={data} showId type="solution" isMobile={isMobile} />
 				<CTAButton isMobile={isMobile} type="medium">
 					Начать
 				</CTAButton>

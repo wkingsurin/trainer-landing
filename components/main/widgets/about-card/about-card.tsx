@@ -15,7 +15,7 @@ export default function AboutCard({
 	imageAlt,
 	isMobile,
 }: IProps) {
-	const style = isMobile ? "" : "group min-w-[351px] w-1/4";
+	const style = isMobile ? "w-full" : "group min-w-[351px] w-1/4";
 
 	const animateStyle = "transition transform-gpu scale-101 duration-[0.5s]";
 	const animationStyle = isMobile

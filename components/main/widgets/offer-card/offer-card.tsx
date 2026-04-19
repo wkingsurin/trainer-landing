@@ -28,7 +28,7 @@ export default function OfferCard({
 	children,
 	data,
 }: IProps) {
-	const style = isMobile ? "flex-1" : "w-full";
+	const style = isMobile ? "flex-1 w-full" : "w-full";
 
 	const scaleCard = isMobile ? '' : "hover:scale-103"
 

@@ -15,8 +15,10 @@ export default function OfferCardMotion({
 	children,
 	isMobile,
 }: IProps) {
+	const cardStyle = isMobile ? "w-full" : "w-1/4";
+
 	if (!animate) {
-		return <div className="relative flex w-1/4">{children}</div>;
+		return <div className={`relative flex ${cardStyle}`}>{children}</div>;
 	}
 
 	const stepDuration = 0.7;
@@ -51,7 +53,7 @@ export default function OfferCardMotion({
 			variants={cardVariants}
 			initial={"hidden"}
 			whileInView={"visible"}
-			className={`relative flex w-1/4`}
+			className={`relative flex ${cardStyle}`}
 			style={{ zIndex: `${1200 - Number(index)}` }}
 			viewport={{ once: true }}
 		>

@@ -90,7 +90,7 @@ export default function Carousel({ isMobile, slides }: IProps) {
 						key={index}
 						className={`relative z-${
 							1300 - index
-						} flex [&:last-child]:m-0 basis-[85%] sm:mr-[9px] sm:basis-[calc(50%-9px)] md:mr-[12px] md:basis-[calc(33.333%-12px)] xl:mr-[24px] xl:basis-[calc(25%-18px)]`}
+						} flex mr-[24px] [&:last-child]:m-0 basis-[85%] sm:mr-[9px] sm:basis-[calc(50%-9px)] md:mr-[12px] md:basis-[calc(33.333%-12px)] xl:mr-[24px] xl:basis-[calc(25%-18px)]`}
 					>
 						<SlideCard
 							index={index}

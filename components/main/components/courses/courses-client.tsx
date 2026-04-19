@@ -15,7 +15,6 @@ export default function CoursesClient({ data, isMobile }: IProps) {
 
 	return (
 		<>
-			{" "}
 			{data.map((course, index) => {
 				const premium = course.price.includes("9");
 
@@ -24,6 +23,7 @@ export default function CoursesClient({ data, isMobile }: IProps) {
 						key={course.tag}
 						index={`${index}`}
 						animate={!hasVisited}
+						isMobile={isMobile}
 					>
 						<OfferCard
 							imageSrc={course.imageSrc}

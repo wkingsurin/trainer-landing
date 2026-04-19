@@ -31,6 +31,7 @@ export default function OffersClient({ data, isMobile }: IProps) {
 						key={offer.tag}
 						index={`${index}`}
 						animate={!hasVisited}
+						isMobile={isMobile}
 					>
 						<OfferCard
 							imageSrc={offer.imageSrc}

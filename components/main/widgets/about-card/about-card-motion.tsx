@@ -15,6 +15,8 @@ export default function AboutCardMotion({
 	children,
 	isMobile,
 }: IProps) {
+	const cardStyle = isMobile ? 'w-full' : 'w-[351px]'
+
 	if (!animate) {
 		return <div className="relative flex w-[351px]">{children}</div>;
 	}
@@ -51,7 +53,7 @@ export default function AboutCardMotion({
 			variants={cardVariants}
 			initial={"hidden"}
 			whileInView={"visible"}
-			className={`relative flex w-[351px]`}
+			className={`relative flex ${cardStyle}`}
 			style={{ zIndex: `${1200 - Number(index)}` }}
 			viewport={{ once: true }}
 		>

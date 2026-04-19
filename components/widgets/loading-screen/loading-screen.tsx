@@ -4,22 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import Screen from "./screen";
 import { useUIStore } from "@/lib/store/ui.store";
 import { useEffect } from "react";
-import { setCookie } from "@/app/cookie-action";
+import { setHasVisited } from "@/app/utils/client-cookie";
 
 export default function LoadingScreen() {
 	const appReady = useUIStore((s) => s.appReady);
-	const setAppReady = useUIStore((s) => s.setAppReady);
-
-	useEffect(() => {
-		const timer = setTimeout(async () => {
-			setAppReady(true);
-			setCookie();
-		}, 3500);
-
-		return () => {
-			clearTimeout(timer);
-		};
-	}, [setAppReady]);
 
 	useEffect(() => {
 		if (appReady) {
@@ -35,26 +23,15 @@ export default function LoadingScreen() {
 		<AnimatePresence mode="wait">
 			{!appReady && (
 				<motion.div
-					style={{
-						position: "fixed",
-						top: 0,
-						left: 0,
-						width: "100%",
-						height: "100dvh",
-						display: "flex",
-						justifyContent: "center",
-						background: "oklch(0.1708 0.0103 285.25)",
-						alignItems: "center",
-						zIndex: 2100,
-					}}
 					key="loader"
 					initial={{ opacity: 1 }}
 					animate={{ opacity: 1 }}
-					exit={{ opacity: 0 }}
+					exit={{ opacity: 0, scale: 1.05 }}
 					transition={{ duration: 0.5, ease: "easeInOut" }}
-					className="loading-screen"
+					className="loading-screen fixed top-0 left-0 w-full h-[100dvh] flex justify-center bg-background items-center z-[9999]"
+					onAnimationComplete={setHasVisited}
 				>
-					<Screen key="loader" />
+					<Screen />
 				</motion.div>
 			)}
 		</AnimatePresence>

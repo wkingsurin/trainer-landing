@@ -1,5 +1,5 @@
 import Section from "../../shared/section";
-import CardsBlock from "../../widgets/cards-block";
+import CardsBlock from "../../widgets/cards-block/cards-block";
 import TitleBlock from "../../widgets/title-block";
 
 import { ADVANTAGE_DATA, ADVANTAGE_TITLE } from "@/app/utils/config";

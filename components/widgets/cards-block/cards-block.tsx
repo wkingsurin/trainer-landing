@@ -1,10 +1,10 @@
 "use client";
 
-import ProblemCard from "./problem-card";
-import AdvantageCard from "./advantage-card";
-import SolutionCard from "./solution-card";
+import ProblemCard from "../problem-card/problem-card";
+import AdvantageCard from "../advantage-card";
+import SolutionCard from "../solution-card";
 import CardsBlockMotion from "./cards-block-motion";
-import { useVisit } from "../contexts/visit-context";
+import { useVisit } from "../../contexts/visit-context";
 
 interface IProps {
 	cards: {
@@ -15,7 +15,7 @@ interface IProps {
 	}[];
 	showId?: boolean;
 	showWorth?: boolean;
-	isMobile?: boolean;
+	isMobile: boolean;
 	className?: string;
 	type: "advantage" | "problems" | "solution";
 }

@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
-import BaseCard from "./base-card";
-import { motion, Variants } from "framer-motion";
+import BaseCard from "../base-card";
+import { AnimatePresence, motion, Variants } from "framer-motion";
+import { useState } from "react";
+import ProblemCardSkeleton from "./problem-card-skeleton";
 
 interface IProps {
 	card: {
@@ -10,7 +14,7 @@ interface IProps {
 	};
 	showId?: boolean;
 	square?: boolean;
-	isMobile?: boolean;
+	isMobile: boolean;
 }
 
 export default function ProblemCard({
@@ -19,7 +23,15 @@ export default function ProblemCard({
 	square,
 	isMobile,
 }: IProps) {
-	const cardStyle = isMobile ? "min-h-[150px] font-bold" : "min-h-[150px] font-bold";
+	const [isLoaded, setIsLoaded] = useState<boolean>(false);
+
+	const skeletonStyle = isMobile
+		? "min-h-[150px] w-full"
+		: "min-h-[150px] w-full";
+
+	const cardStyle = isMobile
+		? "min-h-[150px] font-bold"
+		: "min-h-[150px] font-bold";
 	const numberStyle = isMobile
 		? "text-[36px] text-accent"
 		: "text-[36px] text-accent font-semibold";
@@ -60,7 +72,10 @@ export default function ProblemCard({
 	const idIsOdd = (id: string) => Number(id) % 2 !== 0;
 
 	return (
-		<motion.div variants={cardVariants} className="min-h-[150px] md:w-1/4">
+		<motion.div
+			variants={cardVariants}
+			className="relative min-h-[150px] md:w-1/4"
+		>
 			<BaseCard
 				key={card.id}
 				className={`card relative group overflow-hidden gap-[30px] tracking-[2%] font-exo_2 ${
@@ -74,13 +89,31 @@ export default function ProblemCard({
 
 				<div className="absolute overlay left-0 top-0 z-1000 w-full h-full"></div>
 				{idIsOdd(card.id) && (
-					<Image
-						src={`/pain-${card.id}.jpg`}
-						alt="Girl"
-						fill
-						className={`absolute z-999 ${imageStyle} rounded-[16px] opacity-20 scale-105 transition duration-[0.7s] grayscale group-hover:opacity-20 group-hover:scale-100`}
-					/>
+					<>
+						<AnimatePresence>
+							{!isLoaded && (
+								<motion.div
+									initial={{ opacity: 1 }}
+									exit={{ opacity: 0 }}
+									transition={{ duration: 1 }}
+									className={`card-skeleton absolute z-1000 left-0 top-0 flex items-center justify-center bg-foreground rounded-[20px] ${skeletonStyle}`}
+								>
+									<ProblemCardSkeleton />
+								</motion.div>
+							)}
+						</AnimatePresence>
+						<Image
+							src={`/pain-${card.id}.jpg`}
+							alt="Girl"
+							fill
+							sizes="(max-width: 768px) 100vw, 25vw"
+							priority
+							className={`absolute z-999 ${imageStyle} aspect-ratio rounded-[16px] opacity-20 bg-transparent scale-105 transition duration-[0.7s] grayscale group-hover:opacity-20 group-hover:scale-100`}
+							onLoad={() => setIsLoaded(true)}
+						/>
+					</>
 				)}
+				<div className="absolute overlay left-0 top-0 z-998 w-full h-full bg-foreground"></div>
 			</BaseCard>
 		</motion.div>
 	);

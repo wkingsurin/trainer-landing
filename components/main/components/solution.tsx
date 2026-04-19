@@ -1,7 +1,7 @@
 import CTAButton from "../../shared/cta-button";
 import Section from "../../shared/section";
 import SectionContent from "../../shared/section-content";
-import CardsBlock from "../../widgets/cards-block";
+import CardsBlock from "../../widgets/cards-block/cards-block";
 import TitleBlock from "../../widgets/title-block";
 
 import { SOLUTION_DATA, SOLUTION_TITLE } from "@/app/utils/config";

@@ -1,19 +1,12 @@
 import Image from "next/image";
-import Card from "../../shared/card";
-import SocialBlock from "../../widgets/social-block";
+import Card from "../../../shared/card";
+import SocialBlock from "../../../widgets/social-block";
 
 interface IProps {
 	imageSrc: string;
 	imageAlt: string;
 	className?: string;
 	isMobile: boolean;
-	children?: React.ReactNode;
-	data: {
-		title: string;
-		tag?: string;
-		price?: string;
-		description: string | { text: string }[];
-	};
 }
 
 export default function AboutCard({
@@ -21,7 +14,6 @@ export default function AboutCard({
 	imageSrc,
 	imageAlt,
 	isMobile,
-	children,
 }: IProps) {
 	const style = isMobile ? "" : "group min-w-[351px] w-1/4";
 
@@ -46,7 +38,6 @@ export default function AboutCard({
 			>
 				{isMobile ? <SocialBlock /> : null}
 			</div>
-			{children}
 		</Card>
 	);
 }

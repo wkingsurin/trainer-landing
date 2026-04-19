@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Card from "../../shared/card";
-import DescriptionBlock from "../../widgets/description-block";
-import Tag from "../../shared/tag";
-import CTAButton from "../../shared/cta-button";
+import Card from "@/components/shared/card";
+import DescriptionBlock from "@/components/widgets/description-block";
+import Tag from "@/components/shared/tag";
+import CTAButton from "@/components/shared/cta-button";
 
 interface IProps {
 	imageSrc: string;

@@ -1,7 +1,7 @@
 "use client";
 
-import OfferCardMotion from "./offer-card-motion";
-import OfferCard from "../../widgets/offer-card";
+import OfferCardMotion from "../../widgets/offer-card/offer-card-motion";
+import OfferCard from "../../widgets/offer-card/offer-card";
 import { useVisit } from "@/components/contexts/visit-context";
 
 export type OfferType = {
@@ -24,6 +24,8 @@ export default function OffersClient({ data, isMobile }: IProps) {
 	return (
 		<>
 			{data.map((offer, index) => {
+				const premium = index === 1;
+
 				return (
 					<OfferCardMotion
 						key={offer.tag}
@@ -35,6 +37,7 @@ export default function OffersClient({ data, isMobile }: IProps) {
 							imageAlt={offer.imageAlt}
 							data={offer}
 							isMobile={isMobile}
+							premium={premium}
 						/>
 					</OfferCardMotion>
 				);

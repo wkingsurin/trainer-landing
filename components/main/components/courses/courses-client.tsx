@@ -1,8 +1,8 @@
 "use client";
 
 import { useVisit } from "@/components/contexts/visit-context";
-import OfferCardMotion from "../offers/offer-card-motion";
-import OfferCard from "../../widgets/offer-card";
+import OfferCardMotion from "../../widgets/offer-card/offer-card-motion";
+import OfferCard from "../../widgets/offer-card/offer-card";
 import { IOffer } from "@/app/types/shared.types";
 
 interface IProps {

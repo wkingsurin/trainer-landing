@@ -8,7 +8,6 @@ import Hero from "./components/hero";
 import Offers from "./components/offers/offers";
 import Problem from "./components/problems";
 import Results from "./components/results";
-import Services from "./components/services";
 import Solution from "./components/solution";
 
 interface IProps {
@@ -29,8 +28,6 @@ export default async function Main({ children }: IProps) {
 				<Problem isMobile={isMobile} />
 				<Results isMobile={isMobile} />
 				<Solution isMobile={isMobile} />
-				{/* <Services isMobile={isMobile} /> */}
-				{/* <Advantage isMobile={isMobile} /> */}
 				<Offers isMobile={isMobile} />
 				<About isMobile={isMobile} />
 				<Courses isMobile={isMobile} />

@@ -1,8 +1,12 @@
+"use client";
+
 import { motion, Variants } from "framer-motion";
 
 import Image from "next/image";
-import BaseCard from "./base-card";
-import ContentTitle from "../shared/content-title";
+import BaseCard from "../base-card";
+import ContentTitle from "@/components/shared/content-title";
+import { useState } from "react";
+import SolutionCardSkeleton from "./solution-card-skeleton";
 
 interface IProps {
 	card: {
@@ -16,6 +20,8 @@ interface IProps {
 }
 
 export default function SolutionCard({ card, showId, isMobile }: IProps) {
+	const [isLoaded, setIsLoaded] = useState<boolean>(false);
+
 	const cardStyle = isMobile
 		? "min-h-[70px]"
 		: "min-h-[192px] font-bold py-[30px]";
@@ -87,12 +93,19 @@ export default function SolutionCard({ card, showId, isMobile }: IProps) {
 						))}
 				</ul>
 
+				{!isLoaded && hasBackground && <SolutionCardSkeleton />}
+
 				{hasBackground && (
 					<Image
 						src={`/-${card.id}.jpg`}
 						alt="Girl"
 						fill
-						className={`absolute z-999 ${imageStyle} rounded-[16px] opacity-20 scale-105 transition duration-[0.7s] grayscale group-hover:opacity-20 group-hover:scale-100`}
+						className={`absolute z-999 ${imageStyle} rounded-[16px] opacity-0 scale-105 transition duration-[0.7s] grayscale group-hover:opacity-20 group-hover:scale-100`}
+						onLoad={(img) => {
+							img.currentTarget.classList.replace("opacity-0", "opacity-20");
+							console.log(`[img] loaded`);
+							setIsLoaded(true);
+						}}
 					/>
 				)}
 			</BaseCard>

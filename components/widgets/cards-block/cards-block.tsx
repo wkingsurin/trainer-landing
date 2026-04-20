@@ -2,7 +2,7 @@
 
 import ProblemCard from "../problem-card/problem-card";
 import AdvantageCard from "../advantage-card";
-import SolutionCard from "../solution-card";
+import SolutionCard from "../solution-card/solution-card";
 import CardsBlockMotion from "./cards-block-motion";
 import { useVisit } from "../../contexts/visit-context";
 

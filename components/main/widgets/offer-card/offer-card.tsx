@@ -1,8 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Card from "@/components/shared/card";
 import DescriptionBlock from "@/components/widgets/description-block";
 import Tag from "@/components/shared/tag";
 import CTAButton from "@/components/shared/cta-button";
+import { useState } from "react";
+import OfferCardSkeleton from "./offer-card-seketon";
 
 interface IProps {
 	imageSrc: string;
@@ -28,9 +32,11 @@ export default function OfferCard({
 	children,
 	data,
 }: IProps) {
+	const [isLoaded, setIsLoaded] = useState<boolean>(false);
+
 	const style = isMobile ? "flex-1 w-full" : "w-full";
 
-	const scaleCard = isMobile ? '' : "hover:scale-103"
+	const scaleCard = isMobile ? "" : "hover:scale-103";
 
 	const animateStyle = "transition transform-gpu duration-[0.5s]";
 	const animationStyle = isMobile
@@ -41,12 +47,18 @@ export default function OfferCard({
 		<Card
 			className={`group advanced-card p-0! relative min-h-[500px] overflow-hidden ${animateStyle} ${scaleCard} ${style} ${className}`}
 		>
+			{!isLoaded && <OfferCardSkeleton />}
+
 			<Image
-				className={`absolute w-full h-full rounded-[20px] object-cover brightness-90 ${animationStyle}`}
+				className={`absolute w-full h-full rounded-[20px] object-cover opacity-0 brightness-90 ${animationStyle}`}
 				fill
 				priority
 				src={imageSrc}
 				alt={imageAlt}
+				onLoad={(img) => {
+					img.currentTarget.classList.replace('opacity-0', 'opacity-100')
+					setIsLoaded(true)
+				}}
 			/>
 			<div
 				className={`absolute z-1200 w-full h-full flex flex-col justify-between items-end p-3 text-[14px]`}

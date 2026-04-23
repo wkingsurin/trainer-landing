@@ -36,7 +36,7 @@ export default function SocialBlock({
 			)}
 			<div className={`flex justify-center ${iconsStyle}`}>
 				{socials.map((social) => (
-					<Icon key={social.imageName} link={social.link}>{social.icon}</Icon>
+					<Icon key={social.imageName} name={social.imageName} link={social.link}>{social.icon}</Icon>
 				))}
 			</div>
 		</div>

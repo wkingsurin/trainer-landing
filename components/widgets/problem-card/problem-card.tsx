@@ -106,9 +106,9 @@ export default function ProblemCard({
 							src={`/pain-${card.id}.jpg`}
 							alt="Girl"
 							fill
-							sizes="(max-width: 768px) 100vw, 25vw"
-							priority
-							className={`absolute z-999 ${imageStyle} aspect-ratio rounded-[16px] opacity-20 bg-transparent scale-105 transition duration-[0.7s] grayscale group-hover:opacity-20 group-hover:scale-100`}
+							// sizes="(max-width: 768px) 100vw, 25vw"
+							sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+							className={`absolute z-999 ${imageStyle} rounded-[16px] opacity-20 bg-transparent scale-105 transition duration-[0.7s] grayscale group-hover:opacity-20 group-hover:scale-100`}
 							onLoad={() => setIsLoaded(true)}
 						/>
 					</>

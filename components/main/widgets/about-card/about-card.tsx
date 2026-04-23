@@ -21,7 +21,7 @@ export default function AboutCard({
 }: IProps) {
 	const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
-	const style = isMobile ? "w-full" : "group min-w-[351px] w-1/4";
+	const style = isMobile ? "aspect-[3/4]" : "group aspect-[3/4]";
 
 	const animateStyle = "transition transform-gpu scale-101 duration-[0.5s]";
 	const animationStyle = isMobile
@@ -35,13 +35,13 @@ export default function AboutCard({
 			{!isLoaded && <AboutCardSkeleton />}
 
 			<Image
-				className={`absolute w-full h-full rounded-[20px] object-cover opacity-0 brightness-90 ${animationStyle}`}
+				className={`absolute rounded-[20px] opacity-[0.01] object-cover brightness-90 ${animationStyle}`}
 				fill
-				priority
 				src={imageSrc}
 				alt={imageAlt}
+				sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 				onLoad={(img) => {
-					img.currentTarget.classList.replace("opacity-0", "opacity-100");
+					img.currentTarget.classList.replace("opacity-[0.01]", "opacity-100");
 					setIsLoaded(true);
 				}}
 			/>

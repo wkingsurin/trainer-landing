@@ -34,7 +34,7 @@ export default function OfferCard({
 }: IProps) {
 	const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
-	const style = isMobile ? "flex-1 w-full" : "w-full";
+	const style = isMobile ? "flex-1 aspect-[3/4]" : "aspect-[3/4]";
 
 	const scaleCard = isMobile ? "" : "hover:scale-103";
 
@@ -50,13 +50,13 @@ export default function OfferCard({
 			{!isLoaded && <OfferCardSkeleton />}
 
 			<Image
-				className={`absolute w-full h-full rounded-[20px] object-cover opacity-0 brightness-90 ${animationStyle}`}
+				className={`absolute rounded-[20px] object-cover opacity-[0.01] brightness-90 ${animationStyle}`}
 				fill
-				priority
 				src={imageSrc}
 				alt={imageAlt}
+				sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 				onLoad={(img) => {
-					img.currentTarget.classList.replace('opacity-0', 'opacity-100')
+					img.currentTarget.classList.replace('opacity-[0.01]', 'opacity-100')
 					setIsLoaded(true)
 				}}
 			/>

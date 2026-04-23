@@ -97,13 +97,13 @@ export default function SolutionCard({ card, showId, isMobile }: IProps) {
 
 				{hasBackground && (
 					<Image
-						src={`/-${card.id}.jpg`}
+						src={`/${card.id}.jpg`}
 						alt="Girl"
 						fill
-						className={`absolute z-999 ${imageStyle} rounded-[16px] opacity-0 scale-105 transition duration-[0.7s] grayscale group-hover:opacity-20 group-hover:scale-100`}
+						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+						className={`absolute z-999 ${imageStyle} rounded-[16px] opacity-[0.01] scale-105 transition duration-[0.7s] grayscale group-hover:opacity-20 group-hover:scale-100`}
 						onLoad={(img) => {
-							img.currentTarget.classList.replace("opacity-0", "opacity-20");
-							console.log(`[img] loaded`);
+							img.currentTarget.classList.replace("opacity-[0.01]", "opacity-20");
 							setIsLoaded(true);
 						}}
 					/>

@@ -57,7 +57,7 @@ export default async function Hero({ isMobile }: IProps) {
 					title
 				/>
 			</div>
-			{isMobile ? null : <Advantage />}
+			{isMobile ? null : <Advantage isMobile={isMobile} />}
 		</Section>
 	);
 }

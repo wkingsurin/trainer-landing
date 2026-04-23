@@ -13,7 +13,7 @@ export default function Problem({ isMobile }: IProps) {
 
 	const sectionStyle = isMobile
 		? ""
-		: "container mx-auto max-w-[1280px]! gap-[50px]";
+		: "container relative z-1200 mx-auto max-w-[1280px]! gap-[50px]";
 
 	return (
 		<Section

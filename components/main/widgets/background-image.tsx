@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import image from "@/public/hero.jpg";
+import imageMobile from "@/public/3.jpg"
 import { memo } from "react";
 
 interface IProps {
@@ -12,7 +13,7 @@ export default memo(BackgroundImage)
 
 function BackgroundImage({ isMobile }: IProps) {
 	const imageStyle = isMobile
-		? "object-cover object-top object-left w-[100%] h-[100%]"
+		? "object-cover object-top"
 		: "object-contain object-right";
 	const layerStyle = isMobile ? "top-[80px]" : "top-[100px] aspect-[9/16]";
 
@@ -33,7 +34,7 @@ function BackgroundImage({ isMobile }: IProps) {
 				</div>
 
 				<Image
-					src={image}
+					src={isMobile ? imageMobile : image}
 					alt="background"
 					priority
 					fetchPriority="high"

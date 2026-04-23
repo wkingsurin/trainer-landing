@@ -9,7 +9,7 @@ import "swiper/css";
 import "swiper/css/scrollbar";
 import "swiper/css/navigation";
 
-import SlideCard from "../slide-card";
+import SlideCard from "../slide-card/slide-card";
 import Tag from "../../../shared/tag";
 import { Button } from "./button";
 import type { Swiper as SwiperType } from "swiper";

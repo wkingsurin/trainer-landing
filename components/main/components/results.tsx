@@ -1,6 +1,17 @@
+'use client'
+
 import Section from "../../shared/section";
-import Carousel from "../widgets/carousel/carousel";
 import TitleBlock from "../../widgets/title-block";
+
+import dynamic from "next/dynamic";
+
+export const SwiperCarousel = dynamic(
+	() => import("../widgets/carousel/carousel"),
+	{
+		ssr: false,
+		loading: () => <div className="h-[500px]"></div>,
+	}
+);
 
 import { RESULTS_DATA, RESULTS_TITLE } from "@/app/utils/config";
 
@@ -26,7 +37,7 @@ export default function Results({ isMobile }: IProps) {
 				isMobile={isMobile}
 				className="max-w-[440px]"
 			/>
-			<Carousel slides={data} isMobile={isMobile} />
+			<SwiperCarousel slides={data} isMobile={isMobile} />
 		</Section>
 	);
 }

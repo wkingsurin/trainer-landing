@@ -96,14 +96,17 @@ export default function SlideCard({
 					)}
 				</AnimatePresence>
 				<Image
-					className={`absolute w-full h-full rounded-[20px] aspect-[3/5] opacity-0 transition object-cover brightness-90 ${animationStyle}`}
+					className={`absolute rounded-[20px] opacity-[0.01] transition object-cover brightness-90 ${animationStyle}`}
 					fill
-					priority
 					src={imageSrc}
 					alt={imageAlt}
-					sizes="(max-width: 768px) 100vw, 25vw"
+					sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+					quality={isMobile ? "75" : "90"}
 					onLoad={(img) => {
-						img.currentTarget.classList.replace("opacity-0", 'opacity-100');
+						img.currentTarget.classList.replace(
+							"opacity-[0.01]",
+							"opacity-100"
+						);
 						setIsLoaded(true);
 					}}
 				/>

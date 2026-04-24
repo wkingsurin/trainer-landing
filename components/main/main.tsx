@@ -1,4 +1,5 @@
 import isMobileDevice from "../hooks/isDeviceType";
+import Modal from "../widgets/modal/modal";
 import About from "./components/about/about";
 import Advantage from "./components/advantage";
 import Courses from "./components/courses/courses";
@@ -34,6 +35,8 @@ export default async function Main({ children }: IProps) {
 				<FAQ isMobile={isMobile} />
 				<Feedback isMobile={isMobile} />
 				{children}
+
+				<Modal isMobile={isMobile} />
 			</main>
 		</>
 	);

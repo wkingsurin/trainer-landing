@@ -11,7 +11,6 @@ import Footer from "@/components/footer";
 
 import LoadingScreen from "@/components/widgets/loading-screen/loading-screen";
 import VisitProvider from "@/components/contexts/visit-context";
-import ScrollHydration from "@/components/scrollBehaviorHydration";
 import ScrollBehaviorHydration from "@/components/scrollBehaviorHydration";
 
 const roboto = Roboto({

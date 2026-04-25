@@ -110,8 +110,8 @@ export default function Carousel({ isMobile, slides }: IProps) {
 			</Swiper>
 			{!isMobile && (
 				<>
-					<Button direction="left" ref={prevRef} />
-					<Button direction="right" ref={nextRef} />
+					<Button direction="left" ref={prevRef} active={active > 4} />
+					<Button direction="right" ref={nextRef} active />
 				</>
 			)}
 		</motion.div>
